@@ -1,0 +1,7 @@
+// ─── EmailJS Configuration ──────────────────────────────
+// REPLACE WITH YOUR EMAILJS SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY
+// Sign up at https://www.emailjs.com/ to get your credentials
+
+export const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; // REPLACE WITH YOUR EMAILJS SERVICE_ID
+export const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // REPLACE WITH YOUR EMAILJS TEMPLATE_ID
+export const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // REPLACE WITH YOUR EMAILJS PUBLIC_KEY
