@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Share2 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Share2, X } from "lucide-react";
 
 const socials = [
   {
@@ -46,21 +46,47 @@ const socials = [
   },
 ];
 
-// Quarter circle: icons fan out from bottom-left to top-right
-// Larger radius + wider spread to avoid overlap
-const radius = 110;
-const angles = [10, 35, 58, 80]; // degrees from horizontal (right), spread across quarter arc
+// Quarter circle arc with generous spacing
+const radius = 130;
+const angles = [8, 33, 58, 82];
 
 export default function FloatingSocialButton() {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Close when tapping outside on mobile
+  useEffect(() => {
+    if (!isMobile || !open) return;
+    const handleTap = (e: MouseEvent | TouchEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("touchstart", handleTap);
+    document.addEventListener("mousedown", handleTap);
+    return () => {
+      document.removeEventListener("touchstart", handleTap);
+      document.removeEventListener("mousedown", handleTap);
+    };
+  }, [isMobile, open]);
 
   return (
     <div
+      ref={containerRef}
       className="fixed bottom-6 left-6 z-50"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      // Hover only on desktop
+      onMouseEnter={() => { if (!isMobile) setOpen(true); }}
+      onMouseLeave={() => { if (!isMobile) setOpen(false); }}
     >
-      {/* Social icons - positioned in quarter circle arc opening to the right and up */}
+      {/* Social icons */}
       {socials.map((social, i) => {
         const angle = angles[i] * (Math.PI / 180);
         const x = Math.cos(angle) * radius;
@@ -82,7 +108,7 @@ export default function FloatingSocialButton() {
                 ? `translate(${x}px, ${y}px) scale(1)`
                 : "translate(0, 0) scale(0)",
               opacity: open ? 1 : 0,
-              transitionDelay: open ? `${i * 50}ms` : `${(socials.length - 1 - i) * 30}ms`,
+              transitionDelay: open ? `${i * 60}ms` : `${(socials.length - 1 - i) * 30}ms`,
             }}
           >
             {social.icon}
@@ -90,18 +116,20 @@ export default function FloatingSocialButton() {
         );
       })}
 
-      {/* Main trigger button */}
+      {/* Main trigger button — click on mobile, hover on desktop */}
       <button
+        onClick={() => { if (isMobile) setOpen((v) => !v); }}
         aria-label="Réseaux sociaux"
         className="relative flex h-[60px] w-[60px] items-center justify-center rounded-full text-white shadow-lg transition-all duration-300 cursor-pointer"
         style={{
           background: "linear-gradient(45deg, var(--color-primary), var(--color-primary-light))",
         }}
       >
-        <Share2
-          className="w-6 h-6 transition-transform duration-300"
-          style={{ transform: open ? "rotate(90deg)" : "rotate(0deg)" }}
-        />
+        {open ? (
+          <X className="w-6 h-6 transition-transform duration-300" />
+        ) : (
+          <Share2 className="w-6 h-6 transition-transform duration-300" />
+        )}
       </button>
     </div>
   );

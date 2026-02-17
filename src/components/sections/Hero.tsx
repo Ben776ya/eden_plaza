@@ -50,43 +50,43 @@ function HeroCarousel() {
         {/* Left Arrow */}
         <button
           onClick={prevPage}
-          className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
+          className="shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
           style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}
           aria-label="Services précédents"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
 
         {/* Cards */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="flex-1 grid grid-cols-3 gap-3 sm:gap-4">
           {visibleServices.map((service) => {
             const Icon = service.icon;
             return (
               <a
                 key={service.title}
                 href="#services"
-                className="group rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg bg-white/80 backdrop-blur-sm"
+                className="group rounded-xl sm:rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg bg-white/80 backdrop-blur-sm"
                 style={{ borderColor: "var(--color-border)" }}
               >
-                <div className="relative h-[100px] md:h-[125px] overflow-hidden">
+                <div className="relative h-[90px] sm:h-[125px] overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 33vw, 33vw"
                     loading="eager"
                   />
                 </div>
-                <div className="p-4 flex items-center gap-2.5">
+                <div className="p-2.5 sm:p-4 flex items-center gap-2 sm:gap-2.5">
                   <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                    className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0"
                     style={{ background: "rgba(13, 124, 95, 0.1)" }}
                   >
-                    <Icon className="w-4.5 h-4.5" style={{ color: "var(--color-primary)" }} />
+                    <Icon className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" style={{ color: "var(--color-primary)" }} />
                   </div>
                   <span
-                    className="text-sm font-semibold leading-tight line-clamp-2"
+                    className="text-[11px] sm:text-sm font-semibold leading-tight line-clamp-2"
                     style={{ color: "var(--color-text-primary)" }}
                   >
                     {service.title}
@@ -100,11 +100,11 @@ function HeroCarousel() {
         {/* Right Arrow */}
         <button
           onClick={nextPage}
-          className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
+          className="shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
           style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}
           aria-label="Services suivants"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
       </div>
 
