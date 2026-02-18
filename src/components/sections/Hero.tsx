@@ -45,48 +45,48 @@ function HeroCarousel() {
         Nos services
       </p>
 
-      {/* Carousel with side arrows */}
+      {/* Carousel with side arrows (desktop) */}
       <div className="flex items-center gap-4">
-        {/* Left Arrow */}
+        {/* Left Arrow - hidden on mobile, shown on sm+ */}
         <button
           onClick={prevPage}
-          className="shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
+          className="shrink-0 w-12 h-12 rounded-full hidden sm:flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
           style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}
           aria-label="Services précédents"
         >
-          <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+          <ChevronLeft className="w-6 h-6" />
         </button>
 
         {/* Cards */}
-        <div className="flex-1 grid grid-cols-3 gap-3 sm:gap-4">
+        <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
           {visibleServices.map((service) => {
             const Icon = service.icon;
             return (
               <a
                 key={service.title}
                 href="#services"
-                className="group rounded-xl sm:rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg bg-white/80 backdrop-blur-sm"
+                className="group rounded-xl sm:rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg bg-white/80 backdrop-blur-sm flex flex-row sm:flex-col"
                 style={{ borderColor: "var(--color-border)" }}
               >
-                <div className="relative h-[90px] sm:h-[125px] overflow-hidden">
+                <div className="relative w-[100px] min-h-[80px] sm:w-full sm:min-h-0 sm:h-[125px] overflow-hidden shrink-0">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 33vw, 33vw"
+                    sizes="(max-width: 640px) 100px, 33vw"
                     loading="eager"
                   />
                 </div>
-                <div className="p-2.5 sm:p-4 flex items-center gap-2 sm:gap-2.5">
+                <div className="p-3 sm:p-4 flex items-center gap-2.5">
                   <div
-                    className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0"
                     style={{ background: "rgba(13, 124, 95, 0.1)" }}
                   >
-                    <Icon className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" style={{ color: "var(--color-primary)" }} />
+                    <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5" style={{ color: "var(--color-primary)" }} />
                   </div>
                   <span
-                    className="text-[11px] sm:text-sm font-semibold leading-tight line-clamp-2"
+                    className="text-xs sm:text-sm font-semibold leading-tight line-clamp-2"
                     style={{ color: "var(--color-text-primary)" }}
                   >
                     {service.title}
@@ -97,33 +97,56 @@ function HeroCarousel() {
           })}
         </div>
 
-        {/* Right Arrow */}
+        {/* Right Arrow - hidden on mobile, shown on sm+ */}
         <button
           onClick={nextPage}
-          className="shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
+          className="shrink-0 w-12 h-12 rounded-full hidden sm:flex items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
           style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}
           aria-label="Services suivants"
         >
-          <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
+          <ChevronRight className="w-6 h-6" />
         </button>
       </div>
 
-      {/* Dots indicator */}
-      <div className="flex items-center justify-center gap-2 mt-4">
-        {Array.from({ length: totalPages }).map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setPage(i)}
-            className="h-1.5 rounded-full transition-all duration-300 cursor-pointer"
-            style={{
-              width: i === page ? "24px" : "8px",
-              background: i === page
-                ? "linear-gradient(90deg, var(--color-primary), var(--color-primary-light))"
-                : "var(--color-border)",
-            }}
-            aria-label={`Page ${i + 1}`}
-          />
-        ))}
+      {/* Mobile arrows + dots */}
+      <div className="flex items-center justify-center gap-4 mt-4">
+        {/* Mobile left arrow */}
+        <button
+          onClick={prevPage}
+          className="shrink-0 w-9 h-9 rounded-full flex sm:hidden items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
+          style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}
+          aria-label="Services précédents"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        {/* Dots indicator */}
+        <div className="flex items-center justify-center gap-2">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setPage(i)}
+              className="h-1.5 rounded-full transition-all duration-300 cursor-pointer"
+              style={{
+                width: i === page ? "24px" : "8px",
+                background: i === page
+                  ? "linear-gradient(90deg, var(--color-primary), var(--color-primary-light))"
+                  : "var(--color-border)",
+              }}
+              aria-label={`Page ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Mobile right arrow */}
+        <button
+          onClick={nextPage}
+          className="shrink-0 w-9 h-9 rounded-full flex sm:hidden items-center justify-center border transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:bg-white/80 cursor-pointer"
+          style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}
+          aria-label="Services suivants"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );
