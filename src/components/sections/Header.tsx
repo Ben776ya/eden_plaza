@@ -160,7 +160,7 @@ export default function Header() {
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-8 btn-gradient justify-center text-sm"
+                className="mt-8 btn-gradient justify-center text-sm !py-2.5 !px-5 self-start"
               >
                 Devis Gratuit
               </a>

@@ -126,7 +126,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Nettoyage en profondeur pour éliminer acariens, taches et impuretés.",
     image:
-      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=600&q=80",
+      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&q=80",
     icon: Layers,
   },
 ];
