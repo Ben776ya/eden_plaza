@@ -162,7 +162,7 @@ export const SERVICES: ServiceItem[] = [
     description:
       "Nettoyage et détachage professionnel par injection/extraction et vapeur.",
     image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80",
     icon: Sofa,
     intro:
       "Vos canapés et fauteuils ont perdu leur éclat ? Eden Plaza Nettoyage redonne vie à vos meubles rembourrés grâce à des techniques professionnelles d'injection/extraction et de nettoyage vapeur.",

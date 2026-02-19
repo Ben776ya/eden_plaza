@@ -91,8 +91,10 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            {/* Language Switcher */}
-            <LanguageSwitcher />
+            {/* Language Switcher — hidden on mobile (available in drawer) */}
+            <div className="hidden md:block">
+              <LanguageSwitcher />
+            </div>
 
             {/* Phone number */}
             <a
