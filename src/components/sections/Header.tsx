@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Logo from "@/components/ui/Logo";
@@ -12,6 +13,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const activeSection = useScrollSpy();
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => {
@@ -57,11 +60,12 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Navigation principale">
             {NAV_LINKS.map((link) => {
-              const isActive = `#${activeSection}` === link.href;
+              const href = isHome ? link.href : `/${link.href}`;
+              const isActive = isHome && `#${activeSection}` === link.href;
               return (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={href}
                   className={`relative text-sm font-medium transition-colors duration-200 ${
                     isActive
                       ? "gradient-text"
@@ -97,7 +101,7 @@ export default function Header() {
 
             {/* CTA Button — gradient style */}
             <a
-              href="#contact"
+              href={isHome ? "#contact" : "/#contact"}
               className="hidden md:inline-flex btn-gradient !py-2.5 !px-5 text-sm"
             >
               Devis Gratuit
@@ -147,7 +151,7 @@ export default function Header() {
                 {NAV_LINKS.map((link) => (
                   <a
                     key={link.href}
-                    href={link.href}
+                    href={isHome ? link.href : `/${link.href}`}
                     onClick={() => setMobileOpen(false)}
                     className="text-lg font-medium transition-colors hover:text-[var(--color-primary)]"
                     style={{ color: "var(--color-text-primary)" }}
@@ -158,7 +162,7 @@ export default function Header() {
               </div>
 
               <a
-                href="#contact"
+                href={isHome ? "#contact" : "/#contact"}
                 onClick={() => setMobileOpen(false)}
                 className="mt-8 btn-gradient justify-center text-sm !py-2.5 !px-5 self-start"
               >

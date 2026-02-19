@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { SERVICES } from "@/lib/constants";
 
 export default function Services() {
@@ -103,13 +104,13 @@ export default function Services() {
                   >
                     {service.description}
                   </p>
-                  <a
-                    href="#contact"
+                  <Link
+                    href={`/services/${service.slug}`}
                     className="inline-flex items-center gap-1.5 text-sm font-medium transition-all duration-300 hover:gap-2.5 gradient-text"
                   >
                     En savoir plus
                     <ArrowRight className="w-4 h-4" style={{ color: "var(--color-primary)" }} />
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             );

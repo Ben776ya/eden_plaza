@@ -1,6 +1,7 @@
 "use client";
 
 import { Facebook, Instagram, Phone, Mail, MapPin, Clock } from "lucide-react";
+import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import { NAV_LINKS, SERVICES, FOOTER, CONTACT } from "@/lib/constants";
 
@@ -47,13 +48,13 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {SERVICES.map((s) => (
                 <li key={s.title}>
-                  <a
-                    href="#services"
+                  <Link
+                    href={`/services/${s.slug}`}
                     className="text-sm transition-colors hover:text-white"
                     style={{ color: "rgba(255,255,255,0.5)" }}
                   >
                     {s.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -68,7 +69,7 @@ export default function Footer() {
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={`/${link.href}`}
                     className="text-sm transition-colors hover:text-white"
                     style={{ color: "rgba(255,255,255,0.5)" }}
                   >

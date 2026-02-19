@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { HERO, SERVICES } from "@/lib/constants";
 
 const stagger = {
@@ -62,9 +63,9 @@ function HeroCarousel() {
           {visibleServices.map((service) => {
             const Icon = service.icon;
             return (
-              <a
+              <Link
                 key={service.title}
-                href="#services"
+                href={`/services/${service.slug}`}
                 className="group rounded-xl sm:rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg bg-white/80 backdrop-blur-sm flex flex-row sm:flex-col"
                 style={{ borderColor: "var(--color-border)" }}
               >
@@ -92,7 +93,7 @@ function HeroCarousel() {
                     {service.title}
                   </span>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Logo({ className = "" }: { className?: string }) {
   return (
     <a
-      href="#accueil"
+      href="/#accueil"
       className={`flex items-center group ${className}`}
     >
       <Image
