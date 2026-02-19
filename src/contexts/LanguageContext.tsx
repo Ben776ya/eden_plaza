@@ -10,11 +10,12 @@ import {
 import type { Language, Translations } from "@/lib/i18n/types";
 import { fr } from "@/lib/i18n/fr";
 import { en } from "@/lib/i18n/en";
+import { ar } from "@/lib/i18n/ar";
 
 const translationsMap: Record<Language, Translations> = {
   fr,
   en,
-  ar: fr, // Arabic falls back to French until implemented
+  ar,
 };
 
 interface LanguageContextType {

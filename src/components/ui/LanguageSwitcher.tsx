@@ -6,7 +6,7 @@ import type { Language } from "@/lib/i18n/types";
 const LANGUAGES: { code: Language; label: string; available: boolean }[] = [
   { code: "fr", label: "FR", available: true },
   { code: "en", label: "EN", available: true },
-  { code: "ar", label: "AR", available: false },
+  { code: "ar", label: "AR", available: true },
 ];
 
 export default function LanguageSwitcher() {

@@ -81,5 +81,23 @@ export interface Translations {
     prevServices: string;
     nextServices: string;
     scrollDown: string;
+    // Service detail page
+    serviceBadge: string;
+    prestationsHeading: string;
+    targetsHeading: string;
+    coverageHeading: string;
+    whyUsHeading: string;
+    ctaSidebarTitle: string;
+    ctaSidebarBodyShort: string;
+    ctaSidebarBodyLong: string;
+    callButton: string;
+    callButtonLong: string;
+    otherServicesHeading: string;
+    requestQuoteShort: string;
+    requestQuoteButton: string;
+    backToHome: string;
+    serviceNotFound: string;
+    serviceNotFoundBody: string;
+    ctaBottomBody: string;
   };
 }

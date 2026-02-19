@@ -17,6 +17,7 @@ import {
   Star,
 } from "lucide-react";
 import { SERVICES, CONTACT } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -79,22 +80,26 @@ function FAQAccordion({ faqs }: { faqs: { question: string; answer: string }[] }
 export default function ServicePage() {
   const params = useParams();
   const slug = params.slug as string;
-  const service = SERVICES.find((s) => s.slug === slug);
+  const { t } = useLanguage();
 
-  if (!service) {
+  // Find the service index by slug (slugs never change across languages)
+  const serviceIndex = SERVICES.findIndex((s) => s.slug === slug);
+  const baseService = SERVICES[serviceIndex];
+
+  if (!baseService) {
     return (
       <>
         <Header />
         <main className="min-h-screen flex items-center justify-center" style={{ background: "var(--color-bg-light)" }}>
           <div className="text-center px-6">
             <h1 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "var(--color-text-primary)" }}>
-              Service introuvable
+              {t.ui.serviceNotFound}
             </h1>
             <p className="mb-8 text-sm sm:text-base" style={{ color: "var(--color-text-secondary)" }}>
-              Le service demandé n&apos;existe pas.
+              {t.ui.serviceNotFoundBody}
             </p>
             <Link href="/" className="btn-gradient !py-3 !px-5 text-sm">
-              Retour à l&apos;accueil
+              {t.ui.backToHome}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -104,8 +109,17 @@ export default function ServicePage() {
     );
   }
 
-  const Icon = service.icon;
-  const otherServices = SERVICES.filter((s) => s.slug !== slug);
+  // Merge base data (icon, slug, image) with translated text
+  const service = { ...baseService, ...t.services[serviceIndex] };
+  const Icon = baseService.icon;
+
+  // Other services with translated titles
+  const otherServices = SERVICES
+    .filter((s) => s.slug !== slug)
+    .map((s) => {
+      const idx = SERVICES.findIndex((x) => x.slug === s.slug);
+      return { slug: s.slug, icon: s.icon, title: t.services[idx].title };
+    });
 
   return (
     <>
@@ -113,7 +127,6 @@ export default function ServicePage() {
       <main style={{ background: "var(--color-bg-light)" }}>
         {/* Hero Section */}
         <section className="relative pt-20 sm:pt-24 pb-0 overflow-hidden">
-          {/* Background gradient */}
           <div
             className="absolute inset-0"
             style={{
@@ -131,9 +144,9 @@ export default function ServicePage() {
               className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm mb-5 sm:mb-8 flex-wrap"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
-              <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+              <Link href="/" className="hover:text-white transition-colors">{t.nav[0].label}</Link>
               <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-              <Link href="/#services" className="hover:text-white transition-colors">Services</Link>
+              <Link href="/#services" className="hover:text-white transition-colors">{t.nav[1].label}</Link>
               <ChevronRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span className="text-white font-medium">{service.title}</span>
             </motion.nav>
@@ -151,7 +164,7 @@ export default function ServicePage() {
                   style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(10px)" }}
                 >
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                  <span className="text-xs sm:text-sm font-medium text-white">Service professionnel</span>
+                  <span className="text-xs sm:text-sm font-medium text-white">{t.ui.serviceBadge}</span>
                 </div>
                 <h1
                   className="font-bold text-white mb-4 sm:mb-5"
@@ -167,7 +180,7 @@ export default function ServicePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link href="/#contact" className="btn-gradient !py-3 !px-5 text-sm sm:!py-4 sm:!px-8 sm:text-base justify-center">
-                    Demander un Devis
+                    {t.ui.requestQuoteShort}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <a
@@ -180,7 +193,7 @@ export default function ServicePage() {
                 </div>
               </motion.div>
 
-              {/* Image — hidden on very small screens, shown as smaller on mobile */}
+              {/* Image */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -189,7 +202,7 @@ export default function ServicePage() {
               >
                 <div className="relative aspect-[16/10] sm:aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src={service.image}
+                    src={baseService.image}
                     alt={service.title}
                     fill
                     className="object-cover"
@@ -206,15 +219,10 @@ export default function ServicePage() {
         <section className="py-10 sm:py-16 md:py-24">
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-14">
-              {/* Left Column — Main Content */}
+              {/* Left Column */}
               <div className="lg:col-span-2 space-y-8 sm:space-y-12">
                 {/* Prestations */}
-                <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                >
+                <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
                   <h2
                     className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2.5 sm:gap-3"
                     style={{ color: "var(--color-text-primary)" }}
@@ -225,7 +233,7 @@ export default function ServicePage() {
                     >
                       <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "var(--color-primary)" }} />
                     </span>
-                    Nos prestations
+                    {t.ui.prestationsHeading}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     {service.prestations.map((item, i) => (
@@ -244,10 +252,7 @@ export default function ServicePage() {
                         >
                           <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
                         </div>
-                        <span
-                          className="text-[13px] sm:text-sm leading-relaxed"
-                          style={{ color: "var(--color-text-primary)" }}
-                        >
+                        <span className="text-[13px] sm:text-sm leading-relaxed" style={{ color: "var(--color-text-primary)" }}>
                           {item}
                         </span>
                       </motion.div>
@@ -256,12 +261,7 @@ export default function ServicePage() {
                 </motion.div>
 
                 {/* Targets */}
-                <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                >
+                <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
                   <h2
                     className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 flex items-center gap-2.5 sm:gap-3"
                     style={{ color: "var(--color-text-primary)" }}
@@ -272,27 +272,18 @@ export default function ServicePage() {
                     >
                       <Users className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "var(--color-primary)" }} />
                     </span>
-                    Pour les professionnels
+                    {t.ui.targetsHeading}
                   </h2>
                   <p
                     className="text-[13px] sm:text-sm leading-relaxed p-4 sm:p-5 rounded-lg sm:rounded-xl border"
-                    style={{
-                      borderColor: "var(--color-border)",
-                      background: "white",
-                      color: "var(--color-text-secondary)",
-                    }}
+                    style={{ borderColor: "var(--color-border)", background: "white", color: "var(--color-text-secondary)" }}
                   >
                     {service.targets}
                   </p>
                 </motion.div>
 
                 {/* Coverage */}
-                <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                >
+                <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
                   <h2
                     className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 flex items-center gap-2.5 sm:gap-3"
                     style={{ color: "var(--color-text-primary)" }}
@@ -303,27 +294,18 @@ export default function ServicePage() {
                     >
                       <MapPin className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "var(--color-primary)" }} />
                     </span>
-                    Zones couvertes
+                    {t.ui.coverageHeading}
                   </h2>
                   <p
                     className="text-[13px] sm:text-sm leading-relaxed p-4 sm:p-5 rounded-lg sm:rounded-xl border"
-                    style={{
-                      borderColor: "var(--color-border)",
-                      background: "white",
-                      color: "var(--color-text-secondary)",
-                    }}
+                    style={{ borderColor: "var(--color-border)", background: "white", color: "var(--color-text-secondary)" }}
                   >
                     {service.coverage}
                   </p>
                 </motion.div>
 
                 {/* Why Choose Us */}
-                <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                >
+                <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
                   <h2
                     className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2.5 sm:gap-3"
                     style={{ color: "var(--color-text-primary)" }}
@@ -334,7 +316,7 @@ export default function ServicePage() {
                     >
                       <Star className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: "var(--color-primary)" }} />
                     </span>
-                    Pourquoi choisir Eden Plaza ?
+                    {t.ui.whyUsHeading}
                   </h2>
                   <div className="space-y-2 sm:space-y-3">
                     {service.whyUs.map((item, i) => (
@@ -360,17 +342,12 @@ export default function ServicePage() {
                 </motion.div>
 
                 {/* FAQ */}
-                <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                >
+                <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
                   <h2
                     className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6"
                     style={{ color: "var(--color-text-primary)" }}
                   >
-                    Questions fréquentes
+                    {t.ui.faqTitle}
                   </h2>
                   <FAQAccordion faqs={service.faqs} />
                 </motion.div>
@@ -378,22 +355,19 @@ export default function ServicePage() {
 
               {/* Right Column — Sidebar */}
               <div className="space-y-5 sm:space-y-6">
-                {/* On mobile: CTA first, then other services. On desktop: other services first, then sticky CTA */}
+                {/* Mobile CTA */}
                 <div className="lg:hidden">
-                  {/* Mobile CTA */}
                   <motion.div
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
                     className="rounded-xl p-5 text-white"
-                    style={{
-                      background: "linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))",
-                    }}
+                    style={{ background: "linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))" }}
                   >
-                    <h3 className="text-base font-bold mb-2">Besoin de ce service ?</h3>
+                    <h3 className="text-base font-bold mb-2">{t.ui.ctaSidebarTitle}</h3>
                     <p className="text-xs leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.8)" }}>
-                      Contactez-nous pour un devis gratuit et personnalisé.
+                      {t.ui.ctaSidebarBodyShort}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2.5">
                       <Link
@@ -401,7 +375,7 @@ export default function ServicePage() {
                         className="flex items-center justify-center gap-2 flex-1 py-2.5 rounded-lg text-sm font-semibold transition-all hover:opacity-90"
                         style={{ background: "white", color: "var(--color-primary)" }}
                       >
-                        Devis Gratuit
+                        {t.ui.freeQuote}
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                       <a
@@ -409,7 +383,7 @@ export default function ServicePage() {
                         className="flex items-center justify-center gap-2 flex-1 py-2.5 rounded-lg text-sm font-semibold border border-white/30 text-white transition-all hover:bg-white/10"
                       >
                         <Phone className="w-3.5 h-3.5" />
-                        Appeler
+                        {t.ui.callButton}
                       </a>
                     </div>
                   </motion.div>
@@ -428,7 +402,7 @@ export default function ServicePage() {
                     className="text-sm sm:text-base font-bold mb-3 sm:mb-4"
                     style={{ color: "var(--color-text-primary)" }}
                   >
-                    Nos autres services
+                    {t.ui.otherServicesHeading}
                   </h3>
                   <div className="space-y-1 sm:space-y-2">
                     {otherServices.map((s) => {
@@ -457,20 +431,18 @@ export default function ServicePage() {
                   </div>
                 </motion.div>
 
-                {/* Desktop-only sticky CTA */}
+                {/* Desktop sticky CTA */}
                 <motion.div
                   variants={fadeUp}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
                   className="hidden lg:block rounded-2xl p-6 text-white sticky top-24"
-                  style={{
-                    background: "linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))",
-                  }}
+                  style={{ background: "linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))" }}
                 >
-                  <h3 className="text-lg font-bold mb-3">Besoin de ce service ?</h3>
+                  <h3 className="text-lg font-bold mb-3">{t.ui.ctaSidebarTitle}</h3>
                   <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>
-                    Contactez-nous dès maintenant pour un devis gratuit et personnalisé.
+                    {t.ui.ctaSidebarBodyLong}
                   </p>
                   <div className="space-y-3">
                     <Link
@@ -478,7 +450,7 @@ export default function ServicePage() {
                       className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
                       style={{ background: "white", color: "var(--color-primary)" }}
                     >
-                      Devis Gratuit
+                      {t.ui.freeQuote}
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                     <a
@@ -486,7 +458,7 @@ export default function ServicePage() {
                       className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold border border-white/30 text-white transition-all hover:bg-white/10"
                     >
                       <Phone className="w-4 h-4" />
-                      Appeler maintenant
+                      {t.ui.callButtonLong}
                     </a>
                   </div>
                 </motion.div>
@@ -498,27 +470,22 @@ export default function ServicePage() {
         {/* Bottom CTA */}
         <section className="py-10 sm:py-16" style={{ background: "white" }}>
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <h2
                 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4"
                 style={{ color: "var(--color-text-primary)" }}
               >
-                Prêt à transformer vos espaces ?
+                {t.contact.title}
               </h2>
               <p
                 className="text-sm sm:text-base mb-6 sm:mb-8 max-w-xl mx-auto"
                 style={{ color: "var(--color-text-secondary)" }}
               >
-                Contactez Eden Plaza Nettoyage pour un devis gratuit. Notre équipe vous répondra dans les plus brefs délais.
+                {t.ui.ctaBottomBody}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                 <Link href="/#contact" className="btn-gradient !py-3 !px-5 text-sm sm:!py-4 sm:!px-8 sm:text-base justify-center w-full sm:w-auto">
-                  Demander un Devis Gratuit
+                  {t.ui.requestQuoteButton}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
@@ -527,7 +494,7 @@ export default function ServicePage() {
                   style={{ borderColor: "var(--color-primary)", color: "var(--color-primary)" }}
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  Retour à l&apos;accueil
+                  {t.ui.backToHome}
                 </Link>
               </div>
             </motion.div>
