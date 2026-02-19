@@ -65,7 +65,7 @@ export default function Services() {
                 className="service-card"
               >
                 {/* Card Image */}
-                <div className="relative aspect-video overflow-hidden">
+                <Link href={`/services/${service.slug}`} className="relative aspect-video overflow-hidden block">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -74,7 +74,7 @@ export default function Services() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
                   />
-                </div>
+                </Link>
 
                 {/* Card Content */}
                 <div className="p-6">
