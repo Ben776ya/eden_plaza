@@ -3,8 +3,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ABOUT } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
+  // Merge base card data (icon) with translated text
+  const cards = ABOUT.cards.map((card, i) => ({ ...card, ...t.about.cards[i] }));
+
   return (
     <section
       id="apropos"
@@ -20,7 +26,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-sm font-semibold uppercase tracking-widest gradient-text"
           >
-            {ABOUT.label}
+            {t.about.label}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -33,7 +39,7 @@ export default function About() {
               color: "var(--color-text-primary)",
             }}
           >
-            {ABOUT.title}
+            {t.about.title}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -46,7 +52,7 @@ export default function About() {
 
         {/* 3-Card Grid (Mission, Team, Values) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {ABOUT.cards.map((card, i) => {
+          {cards.map((card, i) => {
             const Icon = card.icon;
             return (
               <motion.div
@@ -103,7 +109,7 @@ export default function About() {
             >
               <Image
                 src={ABOUT.founder.image}
-                alt={ABOUT.founder.name}
+                alt={t.about.founder.name}
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
                 sizes="280px"
@@ -118,20 +124,20 @@ export default function About() {
               className="text-2xl font-bold mb-1"
               style={{ color: "var(--color-text-primary)" }}
             >
-              {ABOUT.founder.name}
+              {t.about.founder.name}
             </h3>
             <div className="gradient-line mb-4" />
             <p
               className="text-sm font-medium mb-4"
               style={{ color: "var(--color-primary)" }}
             >
-              {ABOUT.founder.role}
+              {t.about.founder.role}
             </p>
             <p
               className="text-base leading-relaxed italic"
               style={{ color: "var(--color-text-secondary)" }}
             >
-              &ldquo;{ABOUT.founder.message}&rdquo;
+              &ldquo;{t.about.founder.message}&rdquo;
             </p>
           </div>
         </motion.div>

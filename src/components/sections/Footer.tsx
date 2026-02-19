@@ -3,9 +3,15 @@
 import { Facebook, Instagram, Phone, Mail, MapPin, Clock } from "lucide-react";
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
-import { NAV_LINKS, SERVICES, FOOTER, CONTACT } from "@/lib/constants";
+import { SERVICES, FOOTER, CONTACT } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  // Merge base service data (slug) with translated title
+  const services = SERVICES.map((s, i) => ({ slug: s.slug, title: t.services[i].title }));
+
   return (
     <footer style={{ backgroundColor: "var(--color-footer-dark)" }}>
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -14,7 +20,7 @@ export default function Footer() {
           <div>
             <Logo className="[&_span]:!text-white" />
             <p className="mt-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-              {FOOTER.tagline}
+              {t.footer.tagline}
             </p>
             <div className="flex gap-3 mt-5">
               <a
@@ -43,11 +49,11 @@ export default function Footer() {
           {/* Services Column */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
-              Nos Services
+              {t.ui.footerServicesHeading}
             </h4>
             <ul className="space-y-2.5">
-              {SERVICES.map((s) => (
-                <li key={s.title}>
+              {services.map((s) => (
+                <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
                     className="text-sm transition-colors hover:text-white"
@@ -63,10 +69,10 @@ export default function Footer() {
           {/* Quick Links Column */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
-              Liens Utiles
+              {t.ui.footerLinksHeading}
             </h4>
             <ul className="space-y-2.5">
-              {NAV_LINKS.map((link) => (
+              {t.nav.map((link) => (
                 <li key={link.href}>
                   <a
                     href={`/${link.href}`}
@@ -83,7 +89,7 @@ export default function Footer() {
           {/* Contact Column */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
-              Contact
+              {t.ui.footerContactHeading}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -104,7 +110,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
                 <Clock className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "var(--color-secondary)" }} />
-                Lun - Sam : 08h00 - 18h00
+                {t.ui.footerHours}
               </li>
             </ul>
           </div>

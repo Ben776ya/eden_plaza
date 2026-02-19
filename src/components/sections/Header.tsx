@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Logo from "@/components/ui/Logo";
-import { NAV_LINKS } from "@/lib/constants";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Header() {
   const [visible, setVisible] = useState(true);
@@ -15,6 +16,7 @@ export default function Header() {
   const lastScrollY = useRef(0);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => {
@@ -59,7 +61,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Navigation principale">
-            {NAV_LINKS.map((link) => {
+            {t.nav.map((link) => {
               const href = isHome ? link.href : `/${link.href}`;
               const isActive = isHome && `#${activeSection}` === link.href;
               return (
@@ -88,7 +90,10 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
             {/* Phone number */}
             <a
               href="tel:+212661074155"
@@ -104,14 +109,14 @@ export default function Header() {
               href={isHome ? "#contact" : "/#contact"}
               className="hidden md:inline-flex btn-gradient !py-2.5 !px-5 text-sm"
             >
-              Devis Gratuit
+              {t.ui.freeQuote}
             </a>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg cursor-pointer"
-              aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-label={mobileOpen ? t.ui.closeMenu : t.ui.openMenu}
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -142,13 +147,13 @@ export default function Header() {
               <button
                 onClick={() => setMobileOpen(false)}
                 className="self-end mb-8 cursor-pointer"
-                aria-label="Fermer le menu"
+                aria-label={t.ui.closeMenu}
               >
                 <X className="w-6 h-6" />
               </button>
 
               <div className="flex flex-col gap-6">
-                {NAV_LINKS.map((link) => (
+                {t.nav.map((link) => (
                   <a
                     key={link.href}
                     href={isHome ? link.href : `/${link.href}`}
@@ -166,8 +171,13 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="mt-8 btn-gradient justify-center text-sm !py-2.5 !px-5 self-start"
               >
-                Devis Gratuit
+                {t.ui.freeQuote}
               </a>
+
+              {/* Language Switcher in mobile menu */}
+              <div className="mt-6">
+                <LanguageSwitcher />
+              </div>
 
               <div className="mt-auto pt-8 border-t text-sm space-y-3" style={{ borderColor: "var(--color-border)", color: "var(--color-text-secondary)" }}>
                 <a href="tel:+212661074155" className="flex items-center gap-2">

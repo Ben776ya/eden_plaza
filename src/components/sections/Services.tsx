@@ -5,8 +5,14 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { SERVICES } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Services() {
+  const { t } = useLanguage();
+
+  // Merge base data (icon, slug, image) with translated text
+  const services = SERVICES.map((s, i) => ({ ...s, ...t.services[i] }));
+
   return (
     <section
       id="services"
@@ -22,7 +28,7 @@ export default function Services() {
             viewport={{ once: true }}
             className="text-sm font-semibold uppercase tracking-widest gradient-text"
           >
-            Nos Services
+            {t.ui.servicesLabel}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -35,7 +41,7 @@ export default function Services() {
               color: "var(--color-text-primary)",
             }}
           >
-            Des services professionnels adaptés à tous vos besoins
+            {t.ui.servicesTitle}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -46,18 +52,18 @@ export default function Services() {
           />
         </div>
 
-        {/* Services Grid — Mission Nettoyage style with hover rotation + icon spin */}
+        {/* Services Grid */}
         <div
           className="grid gap-6 md:gap-8"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
           }}
         >
-          {SERVICES.map((service, i) => {
+          {services.map((service, i) => {
             const Icon = service.icon;
             return (
               <motion.div
-                key={service.title}
+                key={service.slug}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -108,7 +114,7 @@ export default function Services() {
                     href={`/services/${service.slug}`}
                     className="inline-flex items-center gap-1.5 text-sm font-medium transition-all duration-300 hover:gap-2.5 gradient-text"
                   >
-                    En savoir plus
+                    {t.ui.learnMore}
                     <ArrowRight className="w-4 h-4" style={{ color: "var(--color-primary)" }} />
                   </Link>
                 </div>

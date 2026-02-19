@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -10,6 +11,14 @@ const cardVariants = {
 };
 
 export default function Testimonials() {
+  const { t } = useLanguage();
+
+  // Merge base data (name, initial, color) with translated quote
+  const testimonials = TESTIMONIALS.map((item, i) => ({
+    ...item,
+    quote: t.testimonials[i].quote,
+  }));
+
   return (
     <section
       id="avis"
@@ -25,7 +34,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="text-sm font-semibold uppercase tracking-widest gradient-text"
           >
-            Témoignages
+            {t.ui.testimonialsLabel}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -38,7 +47,7 @@ export default function Testimonials() {
               color: "var(--color-text-primary)",
             }}
           >
-            Ce que disent nos clients
+            {t.ui.testimonialsTitle}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -57,9 +66,9 @@ export default function Testimonials() {
           transition={{ staggerChildren: 0.12 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {TESTIMONIALS.map((t) => (
+          {testimonials.map((item) => (
             <motion.div
-              key={t.name}
+              key={item.name}
               variants={cardVariants}
               className="feature-card relative !text-left"
             >
@@ -88,22 +97,22 @@ export default function Testimonials() {
                 className="text-sm italic leading-relaxed mb-6"
                 style={{ color: "var(--color-text-primary)" }}
               >
-                &laquo; {t.quote} &raquo;
+                &laquo; {item.quote} &raquo;
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-3">
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold ${t.color}`}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold ${item.color}`}
                 >
-                  {t.initial}
+                  {item.initial}
                 </div>
                 <div>
                   <p className="text-sm font-semibold" style={{ color: "var(--color-text-primary)" }}>
-                    {t.name}
+                    {item.name}
                   </p>
                   <p className="text-xs" style={{ color: "var(--color-text-secondary)" }}>
-                    Client vérifié
+                    {t.ui.verifiedClient}
                   </p>
                 </div>
               </div>

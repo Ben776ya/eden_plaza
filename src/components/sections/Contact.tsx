@@ -6,12 +6,14 @@ import { Phone, Mail, MapPin, Clock, Loader2, CheckCircle, AlertCircle } from "l
 import emailjs from "@emailjs/browser";
 import { CONTACT } from "@/lib/constants";
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/emailjs";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
+  const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,10 +38,10 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: Phone, label: CONTACT.phone.label, value: CONTACT.phone.value, href: CONTACT.phone.href },
-    { icon: Mail, label: CONTACT.email.label, value: CONTACT.email.value, href: CONTACT.email.href },
-    { icon: MapPin, label: CONTACT.address.label, value: CONTACT.address.value },
-    { icon: Clock, label: CONTACT.hours.label, value: CONTACT.hours.value },
+    { icon: Phone, label: t.contact.phone.label, value: CONTACT.phone.value, href: CONTACT.phone.href },
+    { icon: Mail, label: t.contact.email.label, value: CONTACT.email.value, href: CONTACT.email.href },
+    { icon: MapPin, label: t.contact.address.label, value: CONTACT.address.value },
+    { icon: Clock, label: t.contact.hours.label, value: t.contact.hours.value },
   ];
 
   const inputClasses =
@@ -60,7 +62,7 @@ export default function Contact() {
             viewport={{ once: true }}
             className="text-sm font-semibold uppercase tracking-widest gradient-text"
           >
-            {CONTACT.label}
+            {t.contact.label}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -73,7 +75,7 @@ export default function Contact() {
               color: "var(--color-text-primary)",
             }}
           >
-            {CONTACT.title}
+            {t.contact.title}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -96,7 +98,7 @@ export default function Contact() {
               className="text-base leading-relaxed mb-8"
               style={{ color: "var(--color-text-secondary)" }}
             >
-              {CONTACT.body}
+              {t.contact.body}
             </p>
 
             <div className="space-y-4">
@@ -145,38 +147,38 @@ export default function Contact() {
                 className="text-xl font-semibold mb-6"
                 style={{ color: "var(--color-text-primary)" }}
               >
-                {CONTACT.formTitle}
+                {t.contact.formTitle}
               </h3>
 
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="user_name" className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-text-primary)" }}>
-                    Nom complet *
+                    {t.ui.formName}
                   </label>
-                  <input type="text" id="user_name" name="user_name" required className={inputClasses} style={{ borderColor: "var(--color-border)" }} placeholder="Votre nom complet" />
+                  <input type="text" id="user_name" name="user_name" required className={inputClasses} style={{ borderColor: "var(--color-border)" }} placeholder={t.ui.formPlaceholderName} />
                 </div>
 
                 <div>
                   <label htmlFor="user_email" className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-text-primary)" }}>
-                    Email *
+                    {t.ui.formEmail}
                   </label>
-                  <input type="email" id="user_email" name="user_email" required className={inputClasses} style={{ borderColor: "var(--color-border)" }} placeholder="votre@email.com" />
+                  <input type="email" id="user_email" name="user_email" required className={inputClasses} style={{ borderColor: "var(--color-border)" }} placeholder={t.ui.formPlaceholderEmail} />
                 </div>
 
                 <div>
                   <label htmlFor="user_phone" className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-text-primary)" }}>
-                    Téléphone
+                    {t.ui.formPhone}
                   </label>
-                  <input type="tel" id="user_phone" name="user_phone" className={inputClasses} style={{ borderColor: "var(--color-border)" }} placeholder="+212 6XX XXX XXX" />
+                  <input type="tel" id="user_phone" name="user_phone" className={inputClasses} style={{ borderColor: "var(--color-border)" }} placeholder={t.ui.formPlaceholderPhone} />
                 </div>
 
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-text-primary)" }}>
-                    Service souhaité
+                    {t.ui.formService}
                   </label>
                   <select id="service" name="service" className={`${inputClasses} appearance-none cursor-pointer`} style={{ borderColor: "var(--color-border)" }} defaultValue="">
-                    <option value="" disabled>Sélectionnez un service</option>
-                    {CONTACT.serviceOptions.map((opt) => (
+                    <option value="" disabled>{t.ui.formPlaceholderService}</option>
+                    {t.contact.serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>{opt}</option>
                     ))}
                   </select>
@@ -184,9 +186,9 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-text-primary)" }}>
-                    Message *
+                    {t.ui.formMessage}
                   </label>
-                  <textarea id="message" name="message" required rows={4} className={`${inputClasses} resize-none`} style={{ borderColor: "var(--color-border)" }} placeholder="Décrivez votre besoin..." />
+                  <textarea id="message" name="message" required rows={4} className={`${inputClasses} resize-none`} style={{ borderColor: "var(--color-border)" }} placeholder={t.ui.formPlaceholderMessage} />
                 </div>
 
                 <button
@@ -195,19 +197,19 @@ export default function Contact() {
                   className="w-full btn-gradient justify-center disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {status === "loading" && <Loader2 className="w-5 h-5 animate-spin" />}
-                  {status === "loading" ? "Envoi en cours..." : "Envoyer la demande"}
+                  {status === "loading" ? t.ui.formSending : t.ui.formSubmit}
                 </button>
 
                 {status === "success" && (
                   <div className="flex items-center gap-2 text-sm font-medium text-green-600 bg-green-50 rounded-lg p-3">
                     <CheckCircle className="w-5 h-5" />
-                    Votre demande a été envoyée avec succès ! Nous vous répondrons bientôt.
+                    {t.ui.formSuccess}
                   </div>
                 )}
                 {status === "error" && (
                   <div className="flex items-center gap-2 text-sm font-medium text-red-600 bg-red-50 rounded-lg p-3">
                     <AlertCircle className="w-5 h-5" />
-                    Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.
+                    {t.ui.formError}
                   </div>
                 )}
               </form>

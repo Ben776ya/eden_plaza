@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 import { USPS } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function WhyChooseUs() {
+  const { t } = useLanguage();
+
+  // Merge base data (icon) with translated text
+  const usps = USPS.map((u, i) => ({ ...u, ...t.usps[i] }));
+
   return (
     <section
       className="py-20 md:py-28"
@@ -18,7 +24,7 @@ export default function WhyChooseUs() {
             viewport={{ once: true }}
             className="text-sm font-semibold uppercase tracking-widest gradient-text"
           >
-            Pourquoi Nous Choisir
+            {t.ui.whyChooseUsLabel}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +37,7 @@ export default function WhyChooseUs() {
               color: "var(--color-text-primary)",
             }}
           >
-            L&apos;excellence au service de votre propreté
+            {t.ui.whyChooseUsTitle}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -44,7 +50,7 @@ export default function WhyChooseUs() {
 
         {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {USPS.map((usp, i) => {
+          {usps.map((usp, i) => {
             const Icon = usp.icon;
             return (
               <motion.div

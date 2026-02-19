@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { FAQS } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function FAQItem({
   question,
@@ -72,6 +72,7 @@ function FAQItem({
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useLanguage();
 
   return (
     <section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-bg-light)" }}>
@@ -84,7 +85,7 @@ export default function FAQ() {
             viewport={{ once: true }}
             className="text-sm font-semibold uppercase tracking-widest gradient-text"
           >
-            FAQ
+            {t.ui.faqLabel}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -97,7 +98,7 @@ export default function FAQ() {
               color: "var(--color-text-primary)",
             }}
           >
-            Questions fréquentes
+            {t.ui.faqTitle}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -117,7 +118,7 @@ export default function FAQ() {
           className="feature-card !p-0 overflow-hidden"
         >
           <div className="border-t" style={{ borderColor: "var(--color-border)" }}>
-            {FAQS.map((faq, i) => (
+            {t.faqs.map((faq, i) => (
               <FAQItem
                 key={i}
                 question={faq.question}

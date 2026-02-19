@@ -3,8 +3,14 @@
 import { motion } from "framer-motion";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { STATS } from "@/lib/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Stats() {
+  const { t } = useLanguage();
+
+  // Merge base data (value, suffix, icon) with translated label
+  const stats = STATS.map((s, i) => ({ ...s, label: t.stats[i].label }));
+
   return (
     <section
       className="py-16 md:py-20"
@@ -15,7 +21,7 @@ export default function Stats() {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
-          {STATS.map((stat, i) => {
+          {stats.map((stat, i) => {
             const Icon = stat.icon;
             return (
               <motion.div
@@ -25,7 +31,7 @@ export default function Stats() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={`text-center ${
-                  i < STATS.length - 1
+                  i < stats.length - 1
                     ? "lg:border-r lg:border-white/20"
                     : ""
                 }`}
