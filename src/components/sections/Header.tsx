@@ -171,13 +171,13 @@ export default function Header() {
               <a
                 href={isHome ? "#contact" : "/#contact"}
                 onClick={() => setMobileOpen(false)}
-                className="mt-8 btn-gradient justify-center text-sm !py-2.5 !px-5 self-start"
+                className="mt-8 btn-gradient text-sm !py-2.5 !px-5 w-fit"
               >
                 {t.ui.freeQuote}
               </a>
 
               {/* Language Switcher in mobile menu */}
-              <div className="mt-6">
+              <div className="mt-6 w-fit">
                 <LanguageSwitcher />
               </div>
 
