@@ -4,10 +4,13 @@ const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID!;
 
 function createAuth() {
+  const credentials = JSON.parse(
+    Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64 ?? "", "base64").toString("utf-8")
+  );
   return new google.auth.GoogleAuth({
     credentials: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: Buffer.from(process.env.GOOGLE_PRIVATE_KEY ?? "", "base64").toString("utf-8"),
+      client_email: credentials.client_email,
+      private_key: credentials.private_key,
     },
     scopes: SCOPES,
   });
