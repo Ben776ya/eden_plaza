@@ -7,7 +7,7 @@ function isAuthenticated(request: NextRequest): boolean {
   return cookie?.value === expected;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const { method } = request;
 
