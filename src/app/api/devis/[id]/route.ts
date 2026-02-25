@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { toggleDevisStatus, deleteDevisById } from "@/lib/sheets";
+import { toggleDevisStatus, deleteDevisById } from "@/lib/supabase";
 
 export async function PATCH(
   _request: Request,

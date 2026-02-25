@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllDevis, appendDevis } from "@/lib/sheets";
+import { getAllDevis, appendDevis } from "@/lib/supabase";
 
 export async function GET() {
   try {

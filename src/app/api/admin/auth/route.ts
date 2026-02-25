@@ -1,28 +1,20 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { getAdminHashes } from "@/lib/sheets";
+import { getAdminHash } from "@/lib/supabase";
 
 const SESSION_SECRET = process.env.ADMIN_SESSION_SECRET ?? "change-me-in-production";
 
 export async function POST(request: Request) {
   try {
-    const { password } = await request.json();
+    const { email, password } = await request.json();
 
-    const hashes = await getAdminHashes();
-    if (hashes.length === 0) {
-      return NextResponse.json({ error: "Aucun admin configuré" }, { status: 401 });
+    if (!email || !password) {
+      return NextResponse.json({ error: "Champs requis manquants" }, { status: 400 });
     }
 
-    let valid = false;
-    for (const hash of hashes) {
-      if (await bcrypt.compare(password, hash)) {
-        valid = true;
-        break;
-      }
-    }
-
-    if (!valid) {
-      return NextResponse.json({ error: "Mot de passe incorrect" }, { status: 401 });
+    const hash = await getAdminHash(email);
+    if (!hash || !(await bcrypt.compare(password, hash))) {
+      return NextResponse.json({ error: "Identifiants incorrects" }, { status: 401 });
     }
 
     const response = NextResponse.json({ success: true });
