@@ -3,9 +3,7 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Loader2, CheckCircle, AlertCircle } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { CONTACT } from "@/lib/constants";
-import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from "@/lib/emailjs";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
@@ -30,20 +28,22 @@ export default function Contact() {
       message: String(fd.get("message") ?? ""),
     };
 
-    const [emailResult, apiResult] = await Promise.allSettled([
-      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY),
-      fetch("/api/devis", {
+    try {
+      const res = await fetch("/api/devis", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(devisData),
-      }),
-    ]);
+      });
 
-    if (emailResult.status === "fulfilled" || apiResult.status === "fulfilled") {
-      setStatus("success");
-      formRef.current.reset();
-      setTimeout(() => setStatus("idle"), 5000);
-    } else {
+      if (res.ok) {
+        setStatus("success");
+        formRef.current.reset();
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 5000);
     }
