@@ -1,9 +1,16 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+let _client: SupabaseClient | null = null;
+
+function db(): SupabaseClient {
+  if (!_client) {
+    const url = process.env.SUPABASE_URL;
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required");
+    _client = createClient(url, key);
+  }
+  return _client;
+}
 
 export type DevisRow = {
   id: string;
@@ -17,7 +24,7 @@ export type DevisRow = {
 };
 
 export async function getAllDevis(): Promise<DevisRow[]> {
-  const { data, error } = await supabase
+  const { data, error } = await db()
     .from("devis")
     .select("*")
     .order("id", { ascending: false });
@@ -32,7 +39,7 @@ export async function appendDevis(
   const id = Date.now().toString();
   const date = new Date().toLocaleString("fr-FR");
 
-  const { error } = await supabase
+  const { error } = await db()
     .from("devis")
     .insert([{ id, ...data, date, status: "pending" }]);
 
@@ -41,7 +48,7 @@ export async function appendDevis(
 }
 
 export async function toggleDevisStatus(id: string): Promise<void> {
-  const { data, error: fetchError } = await supabase
+  const { data, error: fetchError } = await db()
     .from("devis")
     .select("status")
     .eq("id", id)
@@ -51,7 +58,7 @@ export async function toggleDevisStatus(id: string): Promise<void> {
 
   const newStatus = data.status === "done" ? "pending" : "done";
 
-  const { error } = await supabase
+  const { error } = await db()
     .from("devis")
     .update({ status: newStatus })
     .eq("id", id);
@@ -60,12 +67,12 @@ export async function toggleDevisStatus(id: string): Promise<void> {
 }
 
 export async function deleteDevisById(id: string): Promise<void> {
-  const { error } = await supabase.from("devis").delete().eq("id", id);
+  const { error } = await db().from("devis").delete().eq("id", id);
   if (error) throw error;
 }
 
 export async function getAdminHash(email: string): Promise<string | null> {
-  const { data, error } = await supabase
+  const { data, error } = await db()
     .from("admins")
     .select("hashed_password")
     .eq("email", email)
