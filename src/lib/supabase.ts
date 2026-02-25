@@ -36,15 +36,16 @@ export async function getAllDevis(): Promise<DevisRow[]> {
 export async function appendDevis(
   data: Pick<DevisRow, "name" | "email" | "phone" | "service" | "message">
 ): Promise<string> {
-  const id = Date.now().toString();
   const date = new Date().toLocaleString("fr-FR");
 
-  const { error } = await db()
+  const { data: inserted, error } = await db()
     .from("devis")
-    .insert([{ id, ...data, date, status: "pending" }]);
+    .insert([{ ...data, date, status: "pending" }])
+    .select("id")
+    .single();
 
   if (error) throw error;
-  return id;
+  return String(inserted?.id ?? "");
 }
 
 export async function toggleDevisStatus(id: string): Promise<void> {
