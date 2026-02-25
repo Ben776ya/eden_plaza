@@ -21,17 +21,29 @@ export default function Contact() {
 
     setStatus("loading");
 
-    try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY
-      );
+    const fd = new FormData(formRef.current);
+    const devisData = {
+      name: String(fd.get("user_name") ?? ""),
+      email: String(fd.get("user_email") ?? ""),
+      phone: String(fd.get("user_phone") ?? ""),
+      service: String(fd.get("service") ?? ""),
+      message: String(fd.get("message") ?? ""),
+    };
+
+    const [emailResult, apiResult] = await Promise.allSettled([
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY),
+      fetch("/api/devis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(devisData),
+      }),
+    ]);
+
+    if (emailResult.status === "fulfilled" || apiResult.status === "fulfilled") {
       setStatus("success");
       formRef.current.reset();
       setTimeout(() => setStatus("idle"), 5000);
-    } catch {
+    } else {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 5000);
     }

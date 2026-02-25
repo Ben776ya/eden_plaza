@@ -42,3 +42,6 @@ next-env.d.ts
 
 # large archives
 *.zip
+
+# local data directory (leftover from CSV approach)
+/data/
