@@ -21,6 +21,14 @@ export default function Contact() {
     const service = fd.get("service") ?? "";
     const message = fd.get("message") ?? "";
 
+    // Save to dashboard (fire-and-forget — WhatsApp always opens regardless)
+    fetch("/api/devis", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone, service, message }),
+    }).catch(() => {/* non-blocking */});
+
+    // Open WhatsApp with pre-filled message
     const text = [
       `Bonjour Eden Plaza Nettoyage,`,
       ``,
@@ -33,6 +41,7 @@ export default function Contact() {
       .filter((line) => line !== null)
       .join("\n");
 
+    formRef.current.reset();
     window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(text)}`, "_blank");
   };
 
