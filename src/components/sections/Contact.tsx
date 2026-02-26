@@ -1,48 +1,50 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { CONTACT, WHATSAPP_URL } from "@/lib/constants";
+import { Phone, Mail, MapPin, Clock, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { CONTACT } from "@/lib/constants";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+type FormStatus = "idle" | "loading" | "success" | "error";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<FormStatus>("idle");
   const { t } = useLanguage();
 
-  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
 
+    setStatus("loading");
+
     const fd = new FormData(formRef.current);
-    const name = fd.get("user_name") ?? "";
-    const email = fd.get("user_email") ?? "";
-    const phone = fd.get("user_phone") ?? "";
-    const service = fd.get("service") ?? "";
-    const message = fd.get("message") ?? "";
+    try {
+      const res = await fetch("/api/devis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fd.get("user_name") ?? "",
+          email: fd.get("user_email") ?? "",
+          phone: fd.get("user_phone") ?? "",
+          service: fd.get("service") ?? "",
+          message: fd.get("message") ?? "",
+        }),
+      });
 
-    // Save to dashboard (fire-and-forget — WhatsApp always opens regardless)
-    fetch("/api/devis", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, phone, service, message }),
-    }).catch(() => {/* non-blocking */});
-
-    // Open WhatsApp with pre-filled message
-    const text = [
-      `Bonjour Eden Plaza Nettoyage,`,
-      ``,
-      `Nom : ${name}`,
-      `Email : ${email}`,
-      `Téléphone : ${phone}`,
-      service ? `Service : ${service}` : null,
-      message ? `Message : ${message}` : null,
-    ]
-      .filter((line) => line !== null)
-      .join("\n");
-
-    formRef.current.reset();
-    window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(text)}`, "_blank");
+      if (res.ok) {
+        setStatus("success");
+        formRef.current.reset();
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   const contactInfo = [
@@ -201,10 +203,25 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full btn-gradient justify-center cursor-pointer"
+                  disabled={status === "loading"}
+                  className="w-full btn-gradient justify-center disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
-                  {t.ui.formSubmit}
+                  {status === "loading" && <Loader2 className="w-5 h-5 animate-spin" />}
+                  {status === "loading" ? t.ui.formSending : t.ui.formSubmit}
                 </button>
+
+                {status === "success" && (
+                  <div className="flex items-center gap-2 text-sm font-medium text-green-600 bg-green-50 rounded-lg p-3">
+                    <CheckCircle className="w-5 h-5" />
+                    {t.ui.formSuccess}
+                  </div>
+                )}
+                {status === "error" && (
+                  <div className="flex items-center gap-2 text-sm font-medium text-red-600 bg-red-50 rounded-lg p-3">
+                    <AlertCircle className="w-5 h-5" />
+                    {t.ui.formError}
+                  </div>
+                )}
               </form>
             </div>
           </motion.div>

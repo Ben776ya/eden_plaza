@@ -7,7 +7,7 @@ export async function PATCH(
 ) {
   try {
     const { id } = await context.params;
-    toggleStatus(id);
+    await toggleStatus(id);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[PATCH /api/devis/[id]]", err);
@@ -21,7 +21,7 @@ export async function DELETE(
 ) {
   try {
     const { id } = await context.params;
-    removeById(id);
+    await removeById(id);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[DELETE /api/devis/[id]]", err);
