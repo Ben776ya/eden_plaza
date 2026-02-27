@@ -150,7 +150,17 @@ section[id] {
 }
 
 .service-card:hover .service-image {
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+@media (min-width: 640px) {
+  .services-grid .service-card-lone {
+    grid-column: 1 / -1;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
 }
 
 /* ─── Services Carousel / Marquee ───────────────────────── */

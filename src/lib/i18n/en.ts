@@ -278,17 +278,17 @@ export const en: Translations = {
       ],
     },
     {
-      title: "Marble & Floor Crystallization",
+      title: "Marble Crystallization",
       description:
-        "Sanding, polishing and waterproofing treatment to restore shine to your floors.",
+        "Professional sanding, polishing and crystallization to restore shine and brilliance to your marble floors.",
       intro:
-        "Have your marble or parquet floors lost their original shine? Eden Plaza Nettoyage restores brilliance and protection to your floors through professional crystallization and treatment techniques.",
+        "Have your marble floors lost their natural shine? Eden Plaza Nettoyage restores life and brilliance to your marble using professional sanding, polishing and crystallization techniques.",
       prestations: [
         "Sanding and polishing of marble and granite floors",
         "Crystallization for lasting shine",
-        "Parquet vitrification and treatment",
         "Waterproofing and stain protection treatment",
         "Renovation of worn or scratched floors",
+        "Buffing and protection of marble surfaces",
         "Regular maintenance to preserve brilliance",
       ],
       targets:
@@ -296,15 +296,15 @@ export const en: Translations = {
       coverage:
         "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fes, Tangier, Agadir… and all cities in Morocco on request.",
       whyUs: [
-        "Technical expertise in premium floor treatment",
+        "Technical expertise in marble and natural stone treatment",
         "Professional sanding and crystallization machines",
-        "High-end products adapted to each material",
+        "High-end products adapted to marble",
         "Immediately visible results",
         "Free personalized quote",
       ],
       faqs: [
         {
-          question: "What is the difference between polishing and crystallization?",
+          question: "What is the difference between polishing and marble crystallization?",
           answer:
             "Polishing restores shine by smoothing the surface, while crystallization creates a chemical protective layer that permanently enhances marble hardness and luster.",
         },
@@ -314,9 +314,181 @@ export const en: Translations = {
             "The effect generally lasts between 6 months and 1 year depending on traffic and maintenance. We recommend regular upkeep to maintain results.",
         },
         {
+          question: "Do you treat all types of marble?",
+          answer:
+            "Yes, we treat white marble, colored marble, granite and all natural stones with products and techniques adapted to each type.",
+        },
+      ],
+    },
+    {
+      title: "Parquet Crystallization",
+      description:
+        "Vitrification, sanding and parquet treatment to restore shine and protection to your wooden floors.",
+      intro:
+        "Have your parquet floors lost their original shine? Eden Plaza Nettoyage restores brilliance and protection to your floors through professional vitrification and wood treatment techniques.",
+      prestations: [
+        "Sanding of solid and engineered parquet",
+        "Parquet vitrification and treatment",
+        "Oil and wax application for parquet",
+        "Waterproofing and scratch protection treatment",
+        "Renovation of worn or damaged parquet",
+        "Regular maintenance to preserve brilliance",
+      ],
+      targets:
+        "Individuals, hotels, offices, villas, showrooms",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fes, Tangier, Agadir… and all cities in Morocco on request.",
+      whyUs: [
+        "Technical expertise in parquet treatment and renovation",
+        "Professional sanding machines",
+        "High-end products adapted to wood",
+        "Immediately visible results",
+        "Free personalized quote",
+      ],
+      faqs: [
+        {
           question: "Do you treat all types of parquet?",
           answer:
             "Yes, we treat solid, engineered and laminate parquet with products and techniques adapted to each type.",
+        },
+        {
+          question: "Does sanding remove deep scratches?",
+          answer:
+            "Yes, professional sanding removes most scratches, gouges and wear marks from your parquet.",
+        },
+        {
+          question: "How long does the varnish take to dry?",
+          answer:
+            "Generally, vitrification requires 24 to 48 hours of complete drying time. We advise avoiding walking on it during this period.",
+        },
+      ],
+    },
+    {
+      title: "Hospital Cleaning",
+      description:
+        "Strict disinfection protocols to ensure impeccable hygiene in healthcare facilities.",
+      intro:
+        "A clean medical environment is essential for the safety of patients and staff. Eden Plaza Nettoyage applies strict disinfection protocols to guarantee impeccable hygiene in hospitals, clinics and medical offices.",
+      prestations: [
+        "Disinfection of rooms, corridors and care areas",
+        "Cleaning of operating rooms and examination rooms",
+        "Treatment of high-contact surfaces (handles, rails, switches)",
+        "Management and disposal of common medical waste",
+        "Maintenance of sanitary facilities and sensitive areas",
+        "Application of certified hygiene protocols",
+      ],
+      targets:
+        "Hospitals, clinics, medical offices, analysis laboratories, pharmacies",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fes, Tangier, Agadir… and all cities in Morocco on request.",
+      whyUs: [
+        "Strict protocols compliant with sanitary standards",
+        "Staff trained for medical environments",
+        "Certified and approved disinfectant products",
+        "Planned interventions to avoid disrupting care",
+        "Free personalized quote",
+      ],
+      faqs: [
+        {
+          question: "Do you use approved products for medical environments?",
+          answer:
+            "Yes, we exclusively use approved and certified disinfectants that comply with healthcare facility requirements.",
+        },
+        {
+          question: "Do you clean operating rooms?",
+          answer:
+            "Yes, our teams are trained in specific protocols for cleaning operating rooms and sterile areas.",
+        },
+        {
+          question: "Can you intervene at night to avoid disrupting care?",
+          answer:
+            "Absolutely, we adapt our intervention schedules to minimize any impact on medical operations.",
+        },
+      ],
+    },
+    {
+      title: "Hotel Cleaning",
+      description:
+        "Complete and discreet cleaning of rooms and common areas for a premium guest experience.",
+      intro:
+        "Offer your guests an impeccable experience from the moment they arrive. Our teams ensure complete and discreet cleaning of rooms, common areas and service zones to maintain a premium quality level.",
+      prestations: [
+        "Complete cleaning of rooms and suites",
+        "Bed linen change and arrangement",
+        "Bathroom and sanitary facility cleaning",
+        "Common area maintenance (lobby, corridors, elevators)",
+        "Restaurant and conference room cleaning",
+        "Disinfection and quality check per hotel standards",
+      ],
+      targets:
+        "Hotels, riads, hotel residences, apartment hotels, guesthouses",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fes, Tangier, Agadir… and all cities in Morocco on request.",
+      whyUs: [
+        "Discreet staff trained to hotel standards",
+        "Interventions coordinated with reception",
+        "Quality checklist adapted to your standards",
+        "Available 7 days/7 to adapt to room rotations",
+        "Free personalized quote",
+      ],
+      faqs: [
+        {
+          question: "Can you adapt to our hotel standards?",
+          answer:
+            "Yes, we customize our intervention according to your specific standards and requirements to ensure consistent quality.",
+        },
+        {
+          question: "Do you intervene while guests are present?",
+          answer:
+            "Our teams are trained to intervene discreetly, respecting the peace and quiet of guests present in the establishment.",
+        },
+        {
+          question: "Do you offer regular maintenance contracts?",
+          answer:
+            "Yes, we offer daily or weekly contracts adapted to your needs and occupancy rate.",
+        },
+      ],
+    },
+    {
+      title: "Restaurant & Café Cleaning",
+      description:
+        "Maintenance and disinfection of your kitchens, dining rooms and terraces in compliance with food hygiene standards.",
+      intro:
+        "Cleanliness is a key element of your reputation. Eden Plaza Nettoyage guarantees the maintenance and disinfection of your kitchens, dining rooms and terraces, complying with food hygiene standards.",
+      prestations: [
+        "Deep cleaning of professional kitchens",
+        "Degreasing of equipment, hoods and cooking surfaces",
+        "Disinfection of work surfaces and food areas",
+        "Dining room and terrace cleaning",
+        "Sanitary facility and staff room maintenance",
+        "Compliance with HACCP and food hygiene standards",
+      ],
+      targets:
+        "Restaurants, cafés, brasseries, fast-food outlets, caterers, company canteens",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fes, Tangier, Agadir… and all cities in Morocco on request.",
+      whyUs: [
+        "Strict compliance with food hygiene standards (HACCP)",
+        "Staff trained for catering environments",
+        "Interventions outside service hours",
+        "Disinfectant products suitable for food contact surfaces",
+        "Free personalized quote",
+      ],
+      faqs: [
+        {
+          question: "Do you intervene before or after service?",
+          answer:
+            "We adapt our schedules to your constraints — before opening, after closing or between services.",
+        },
+        {
+          question: "Do you comply with HACCP standards?",
+          answer:
+            "Yes, our interventions comply with HACCP standards and current food hygiene requirements.",
+        },
+        {
+          question: "Do you offer daily cleaning contracts?",
+          answer:
+            "Yes, we offer daily or weekly maintenance contracts adapted to your operations and budget.",
         },
       ],
     },
@@ -524,7 +696,11 @@ export const en: Translations = {
       "Window & Facade Cleaning",
       "Industrial Cleaning",
       "Office Cleaning",
-      "Marble & Floor Crystallization",
+      "Marble Crystallization",
+      "Parquet Crystallization",
+      "Hospital Cleaning",
+      "Hotel Cleaning",
+      "Restaurant & Café Cleaning",
       "4D Hygiene Treatment",
       "Carpet & Rug Cleaning",
     ],

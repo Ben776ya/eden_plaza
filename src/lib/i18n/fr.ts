@@ -279,17 +279,17 @@ export const fr: Translations = {
       ],
     },
     {
-      title: "Cristallisation Marbré & Parquet",
+      title: "Cristallisation du Marbre",
       description:
-        "Ponçage, polissage et traitement hydrofuge pour redonner brillance à vos sols.",
+        "Ponçage, polissage et cristallisation professionnelle pour redonner éclat et brillance à vos sols en marbre.",
       intro:
-        "Vos sols en marbre ou parquet ont perdu leur éclat d'origine ? Eden Plaza Nettoyage redonne brillance et protection à vos sols grâce à des techniques de cristallisation et traitement professionnels.",
+        "Vos sols en marbre ont perdu leur brillance naturelle ? Eden Plaza Nettoyage redonne vie et éclat à votre marbre grâce à des techniques professionnelles de ponçage, polissage et cristallisation.",
       prestations: [
         "Ponçage et polissage de sols en marbre et granit",
         "Cristallisation pour une brillance durable",
-        "Vitrification et traitement de parquets",
         "Traitement hydrofuge et anti-taches",
         "Rénovation de sols ternis ou rayés",
+        "Lustrage et protection des surfaces en marbre",
         "Entretien régulier pour maintenir l'éclat",
       ],
       targets:
@@ -297,15 +297,15 @@ export const fr: Translations = {
       coverage:
         "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
       whyUs: [
-        "Expertise technique en traitement de sols nobles",
+        "Expertise technique en traitement de marbre et pierres naturelles",
         "Machines professionnelles de ponçage et cristallisation",
-        "Produits haut de gamme adaptés à chaque matériau",
+        "Produits haut de gamme adaptés au marbre",
         "Résultats visibles immédiatement",
         "Devis gratuit et personnalisé",
       ],
       faqs: [
         {
-          question: "Quelle est la différence entre polissage et cristallisation ?",
+          question: "Quelle est la différence entre polissage et cristallisation du marbre ?",
           answer:
             "Le polissage redonne de la brillance en lissant la surface, tandis que la cristallisation crée une couche protectrice chimique qui renforce la dureté et l'éclat du marbre de manière durable.",
         },
@@ -315,9 +315,181 @@ export const fr: Translations = {
             "L'effet dure généralement entre 6 mois et 1 an selon le passage et l'entretien. Nous recommandons un entretien régulier pour maintenir les résultats.",
         },
         {
+          question: "Traitez-vous tous les types de marbre ?",
+          answer:
+            "Oui, nous traitons le marbre blanc, coloré, le granit et toutes les pierres naturelles avec des produits et techniques adaptés à chaque type.",
+        },
+      ],
+    },
+    {
+      title: "Cristallisation du Parquet",
+      description:
+        "Vitrification, ponçage et traitement de parquets pour redonner brillance et protection à vos sols en bois.",
+      intro:
+        "Vos sols en parquet ont perdu leur éclat d'origine ? Eden Plaza Nettoyage redonne brillance et protection à vos parquets grâce à des techniques professionnelles de vitrification et traitement du bois.",
+      prestations: [
+        "Ponçage de parquets massifs et contrecollés",
+        "Vitrification et traitement de parquets",
+        "Application d'huile et de cire pour parquet",
+        "Traitement hydrofuge et anti-rayures",
+        "Rénovation de parquets ternis ou abîmés",
+        "Entretien régulier pour maintenir l'éclat",
+      ],
+      targets:
+        "Particuliers, hôtels, bureaux, villas, showrooms",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+      whyUs: [
+        "Expertise technique en traitement et rénovation de parquets",
+        "Machines professionnelles de ponçage",
+        "Produits haut de gamme adaptés au bois",
+        "Résultats visibles immédiatement",
+        "Devis gratuit et personnalisé",
+      ],
+      faqs: [
+        {
           question: "Traitez-vous tous les types de parquet ?",
           answer:
             "Oui, nous traitons les parquets massifs, contrecollés et stratifiés avec des produits et techniques adaptés à chaque type.",
+        },
+        {
+          question: "Le ponçage enlève-t-il les rayures profondes ?",
+          answer:
+            "Oui, le ponçage professionnel permet d'éliminer la plupart des rayures, griffes et marques d'usure sur votre parquet.",
+        },
+        {
+          question: "Combien de temps faut-il pour que le vernis sèche ?",
+          answer:
+            "En général, la vitrification demande 24 à 48 heures de séchage complet. Nous vous conseillons d'éviter de marcher dessus pendant cette période.",
+        },
+      ],
+    },
+    {
+      title: "Nettoyage Hôpitaux",
+      description:
+        "Protocoles stricts de désinfection pour garantir une hygiène irréprochable dans les établissements de santé.",
+      intro:
+        "Un environnement médical propre est essentiel pour la sécurité des patients et du personnel. Eden Plaza Nettoyage applique des protocoles stricts de désinfection pour garantir une hygiène irréprochable dans les hôpitaux, cliniques et cabinets médicaux.",
+      prestations: [
+        "Désinfection des chambres, couloirs et zones de soins",
+        "Nettoyage des blocs opératoires et salles d'examen",
+        "Traitement des surfaces à contact fréquent (poignées, rampes, interrupteurs)",
+        "Gestion et élimination des déchets médicaux courants",
+        "Entretien des sanitaires et zones sensibles",
+        "Application de protocoles d'hygiène certifiés",
+      ],
+      targets:
+        "Hôpitaux, cliniques, cabinets médicaux, laboratoires d'analyses, pharmacies",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+      whyUs: [
+        "Protocoles stricts conformes aux normes sanitaires",
+        "Personnel formé aux environnements médicaux",
+        "Produits désinfectants homologués et certifiés",
+        "Interventions planifiées pour ne pas perturber les soins",
+        "Devis gratuit et personnalisé",
+      ],
+      faqs: [
+        {
+          question: "Utilisez-vous des produits homologués pour les environnements médicaux ?",
+          answer:
+            "Oui, nous utilisons exclusivement des désinfectants homologués et certifiés conformes aux exigences des établissements de santé.",
+        },
+        {
+          question: "Intervenez-vous dans les blocs opératoires ?",
+          answer:
+            "Oui, nos équipes sont formées aux protocoles spécifiques pour le nettoyage des blocs opératoires et zones stériles.",
+        },
+        {
+          question: "Pouvez-vous intervenir la nuit pour ne pas perturber les soins ?",
+          answer:
+            "Absolument, nous adaptons nos horaires d'intervention pour minimiser tout impact sur l'activité médicale.",
+        },
+      ],
+    },
+    {
+      title: "Nettoyage Hôtels",
+      description:
+        "Nettoyage complet et discret des chambres et espaces communs pour une expérience client premium.",
+      intro:
+        "Offrez à vos clients une expérience irréprochable dès leur arrivée. Nos équipes assurent un nettoyage complet et discret des chambres, espaces communs et zones de service pour maintenir un niveau de qualité premium.",
+      prestations: [
+        "Nettoyage complet des chambres et suites",
+        "Changement et arrangement du linge de lit",
+        "Nettoyage des salles de bains et sanitaires",
+        "Entretien des espaces communs (lobby, couloirs, ascenseurs)",
+        "Nettoyage des restaurants et salles de conférence",
+        "Désinfection et vérification selon standards hôteliers",
+      ],
+      targets:
+        "Hôtels, riads, résidences hôtelières, appart-hôtels, auberges",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+      whyUs: [
+        "Personnel discret et formé aux standards hôteliers",
+        "Interventions coordonnées avec la réception",
+        "Checklist qualité adaptée à vos standards",
+        "Disponibilité 7j/7 pour s'adapter aux rotations",
+        "Devis gratuit et personnalisé",
+      ],
+      faqs: [
+        {
+          question: "Pouvez-vous vous adapter à nos standards hôteliers ?",
+          answer:
+            "Oui, nous personnalisons notre intervention selon vos standards et exigences spécifiques pour garantir une qualité homogène.",
+        },
+        {
+          question: "Intervenez-vous pendant que les clients sont présents ?",
+          answer:
+            "Nos équipes sont formées pour intervenir discrètement, dans le respect de la tranquillité des clients présents dans l'établissement.",
+        },
+        {
+          question: "Proposez-vous des contrats d'entretien réguliers ?",
+          answer:
+            "Oui, nous proposons des contrats journaliers ou hebdomadaires adaptés à vos besoins et à votre taux d'occupation.",
+        },
+      ],
+    },
+    {
+      title: "Nettoyage Resto-Cafés",
+      description:
+        "Entretien et désinfection de vos cuisines, salles et terrasses dans le respect des normes d'hygiène alimentaire.",
+      intro:
+        "La propreté est un élément clé de votre réputation. Eden Plaza Nettoyage garantit l'entretien et la désinfection de vos cuisines, salles et terrasses, en respectant les normes d'hygiène alimentaire.",
+      prestations: [
+        "Nettoyage en profondeur des cuisines professionnelles",
+        "Dégraissage des équipements, hottes et surfaces de cuisson",
+        "Désinfection des plans de travail et zones alimentaires",
+        "Nettoyage des salles et terrasses",
+        "Entretien des sanitaires et vestiaires",
+        "Respect des normes HACCP et hygiène alimentaire",
+      ],
+      targets:
+        "Restaurants, cafés, brasseries, fast-foods, traiteurs, cantines d'entreprise",
+      coverage:
+        "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+      whyUs: [
+        "Respect strict des normes d'hygiène alimentaire (HACCP)",
+        "Personnel formé aux environnements de restauration",
+        "Interventions hors heures de service",
+        "Produits désinfectants adaptés aux surfaces alimentaires",
+        "Devis gratuit et personnalisé",
+      ],
+      faqs: [
+        {
+          question: "Intervenez-vous avant ou après le service ?",
+          answer:
+            "Nous adaptons nos horaires à vos contraintes, avant l'ouverture, après la fermeture ou entre les services.",
+        },
+        {
+          question: "Respectez-vous les normes HACCP ?",
+          answer:
+            "Oui, nos interventions sont conformes aux normes HACCP et aux exigences d'hygiène alimentaire en vigueur.",
+        },
+        {
+          question: "Proposez-vous des contrats de nettoyage quotidien ?",
+          answer:
+            "Oui, nous proposons des contrats d'entretien quotidien ou hebdomadaire adaptés à votre activité et à votre budget.",
         },
       ],
     },
@@ -526,7 +698,11 @@ export const fr: Translations = {
       "Nettoyage Vitres et Façades",
       "Nettoyage Industriel",
       "Nettoyage Bureaux",
-      "Cristallisation Marbré & Parquet",
+      "Cristallisation du Marbre",
+      "Cristallisation du Parquet",
+      "Nettoyage Hôpitaux",
+      "Nettoyage Hôtels",
+      "Nettoyage Resto-Cafés",
       "Hygiène Traitement 4D",
       "Nettoyage Moquettes & Tapis",
     ],

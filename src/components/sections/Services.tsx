@@ -54,13 +54,14 @@ export default function Services() {
 
         {/* Services Grid */}
         <div
-          className="grid gap-6 md:gap-8"
+          className="services-grid grid gap-6 md:gap-8"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
           }}
         >
           {services.map((service, i) => {
             const Icon = service.icon;
+            const isLone = i === services.length - 1 && services.length % 3 === 1;
             return (
               <motion.div
                 key={service.slug}
@@ -68,10 +69,10 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="service-card"
+                className={`service-card${isLone ? " service-card-lone" : ""}`}
               >
                 {/* Card Image */}
-                <Link href={`/services/${service.slug}`} className="relative aspect-video overflow-hidden block">
+                <Link href={`/services/${service.slug}`} className="relative aspect-[4/3] overflow-hidden block">
                   <Image
                     src={service.image}
                     alt={service.title}

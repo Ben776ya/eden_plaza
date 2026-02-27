@@ -44,6 +44,16 @@ function HeroCarousel() {
   const startIdx = page * itemsPerPage;
   const visibleServices = services.slice(startIdx, startIdx + itemsPerPage);
 
+  // Center lone cards: pad with nulls so the real card sits in the middle column
+  const displayedServices: (typeof visibleServices[0] | null)[] = (() => {
+    if (visibleServices.length < itemsPerPage) {
+      const left = Math.floor((itemsPerPage - visibleServices.length) / 2);
+      const right = itemsPerPage - left - visibleServices.length;
+      return [...Array(left).fill(null), ...visibleServices, ...Array(right).fill(null)];
+    }
+    return visibleServices;
+  })();
+
   return (
     <div className="w-full max-w-4xl mx-auto">
       {/* Label */}
@@ -65,7 +75,8 @@ function HeroCarousel() {
 
         {/* Cards */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-          {visibleServices.map((service) => {
+          {displayedServices.map((service, idx) => {
+            if (!service) return <div key={`pad-${idx}`} className="hidden sm:block" aria-hidden="true" />;
             const Icon = service.icon;
             return (
               <Link
