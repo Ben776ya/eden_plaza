@@ -22,6 +22,13 @@ import {
   FolderOpen,
   UserCheck,
   Briefcase,
+  ShoppingBag,
+  Droplets,
+  ShieldAlert,
+  Bug,
+  FlaskConical,
+  Flower2,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 
@@ -73,8 +80,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-de-chantier",
     description:
       "Remise en état parfaite après chantier pour une livraison impeccable de vos espaces.",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+    image: "/services/nettoyage-chantier.jpeg",
     icon: HardHat,
     intro:
       "Votre chantier est terminé et vous avez besoin d'une remise en état impeccable ? Eden Plaza Nettoyage intervient pour un nettoyage fin de chantier professionnel, afin de livrer des espaces propres et prêts à l'usage.",
@@ -165,8 +171,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-canape-fauteuil",
     description:
       "Nettoyage et détachage professionnel par injection/extraction et vapeur.",
-    image:
-      "https://images.unsplash.com/photo-1705326701287-346fc37a2c86?w=600&q=80",
+    image: "/services/nettoyage-canape-fauteuil.png",
     icon: Sofa,
     intro:
       "Vos canapés et fauteuils ont perdu leur éclat ? Eden Plaza Nettoyage redonne vie à vos meubles rembourrés grâce à des techniques professionnelles d'injection/extraction et de nettoyage vapeur.",
@@ -211,8 +216,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-vitres-facades",
     description:
       "Nettoyage spécialisé pour redonner éclat et transparence à vos bâtiments.",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80",
+    image: "/services/nettoyage-vitres.png",
     icon: Building2,
     intro:
       "Des vitres et façades impeccables reflètent le professionnalisme de votre entreprise. Eden Plaza Nettoyage intervient avec des techniques spécialisées pour redonner éclat et transparence à vos bâtiments.",
@@ -257,8 +261,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-industriel",
     description:
       "Entretien pour usines, ateliers et entrepôts avec équipements et normes de sécurité renforcées.",
-    image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80",
+    image: "/services/nettoyage-industriel.png",
     icon: Factory,
     intro:
       "Votre site industriel a besoin d'un nettoyage rigoureux et sécurisé ? Eden Plaza Nettoyage propose des interventions professionnelles adaptées aux environnements industriels, entrepôts, usines et zones sensibles.",
@@ -303,8 +306,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-bureaux",
     description:
       "Services complets pour espaces professionnels, magasins et entrepôts. Hygiène & Sécurité.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
+    image: "/services/nettoyage-bureaux.png",
     icon: Building,
     intro:
       "Un environnement de travail propre booste la productivité et renforce votre image professionnelle. Eden Plaza Nettoyage assure l'entretien régulier de vos bureaux, locaux commerciaux et espaces de travail.",
@@ -349,8 +351,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "cristallisation-marbre",
     description:
       "Ponçage, polissage et cristallisation professionnelle pour redonner éclat et brillance à vos sols en marbre.",
-    image:
-      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80",
+    image: "/services/machine-cristallisation.png",
     icon: Gem,
     intro:
       "Vos sols en marbre ont perdu leur brillance naturelle ? Eden Plaza Nettoyage redonne vie et éclat à votre marbre grâce à des techniques professionnelles de ponçage, polissage et cristallisation.",
@@ -395,7 +396,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "cristallisation-parquet",
     description:
       "Vitrification, ponçage et traitement de parquets pour redonner brillance et protection à vos sols en bois.",
-    image: "/parque.jpeg",
+    image: "/services/cristallisation-parquet.jpeg",
     icon: Sparkles,
     intro:
       "Vos sols en parquet ont perdu leur éclat d'origine ? Eden Plaza Nettoyage redonne brillance et protection à vos parquets grâce à des techniques professionnelles de vitrification et traitement du bois.",
@@ -440,7 +441,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-hopitaux",
     description:
       "Protocoles stricts de désinfection pour garantir une hygiène irréprochable dans les établissements de santé.",
-    image: "/hospital.jpeg",
+    image: "/services/nettoyage-hopitaux.jpeg",
     icon: Stethoscope,
     intro:
       "Un environnement médical propre est essentiel pour la sécurité des patients et du personnel. Eden Plaza Nettoyage applique des protocoles stricts de désinfection pour garantir une hygiène irréprochable dans les hôpitaux, cliniques et cabinets médicaux.",
@@ -485,7 +486,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-hotels",
     description:
       "Nettoyage complet et discret des chambres et espaces communs pour une expérience client premium.",
-    image: "/hotel.jpeg",
+    image: "/services/nettoyage-hotels.jpeg",
     icon: BedDouble,
     intro:
       "Offrez à vos clients une expérience irréprochable dès leur arrivée. Nos équipes assurent un nettoyage complet et discret des chambres, espaces communs et zones de service pour maintenir un niveau de qualité premium.",
@@ -530,7 +531,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-restos-cafes",
     description:
       "Entretien et désinfection de vos cuisines, salles et terrasses dans le respect des normes d'hygiène alimentaire.",
-    image: "/resto.jpeg",
+    image: "/services/nettoyage-resto-cafes.jpeg",
     icon: UtensilsCrossed,
     intro:
       "La propreté est un élément clé de votre réputation. Eden Plaza Nettoyage garantit l'entretien et la désinfection de vos cuisines, salles et terrasses, en respectant les normes d'hygiène alimentaire.",
@@ -575,7 +576,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "hygiene-traitement-4d",
     description:
       "Désinfection, Dératisation, Désinsectisation et Déréptilisation avec produits homologués.",
-    image: "/4d.jpeg",
+    image: "/services/hygiene-4d.webp",
     icon: ShieldCheck,
     intro:
       "Protégez vos espaces contre les nuisibles et les risques sanitaires. Eden Plaza Nettoyage propose un traitement 4D complet : Désinfection, Dératisation, Désinsectisation et Déréptilisation avec des produits homologués et sûrs.",
@@ -620,7 +621,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-moquettes-tapis",
     description:
       "Nettoyage en profondeur pour éliminer acariens, taches et impuretés.",
-    image: "/tapis.jpeg",
+    image: "/services/nettoyage-moquettes-tapis.jpeg",
     icon: Layers,
     intro:
       "Vos moquettes et tapis accumulent poussières, acariens et taches au fil du temps. Eden Plaza Nettoyage les nettoie en profondeur pour un résultat sain, frais et éclatant.",
@@ -657,6 +658,501 @@ export const SERVICES: ServiceItem[] = [
         question: "Combien de temps faut-il pour le séchage ?",
         answer:
           "Le séchage prend généralement entre 3 et 8 heures selon l'épaisseur du tapis et la ventilation de l'espace.",
+      },
+    ],
+  },
+  {
+    title: "Nettoyage appartements / maisons / villas",
+    slug: "nettoyage-appartements-villas",
+    description:
+      "Nettoyage complet et en profondeur de vos espaces résidentiels pour un cadre de vie sain et impeccable.",
+    image: "/services/nettoyage-appartements-villas.png",
+    icon: Home,
+    intro:
+      "Votre appartement, maison ou villa mérite un entretien irréprochable. Eden Plaza Nettoyage intervient pour un nettoyage complet et en profondeur de tous vos espaces résidentiels, pour un cadre de vie sain, propre et agréable.",
+    prestations: [
+      "Nettoyage complet de toutes les pièces",
+      "Dépoussiérage des meubles, plafonds et surfaces",
+      "Aspiration et lavage des sols (carrelage, marbre, parquet)",
+      "Nettoyage et désinfection des sanitaires et cuisines",
+      "Nettoyage des vitres et fenêtres",
+      "Élimination des traces, taches et impuretés",
+    ],
+    targets: "Particuliers, propriétaires, locataires, agences immobilières, gestionnaires de biens",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Équipes discrètes et de confiance",
+      "Nettoyage personnalisé selon vos besoins",
+      "Produits écologiques sans danger pour la famille",
+      "Disponibilité 7j/7, à l'heure convenue",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Dois-je être présent pendant le nettoyage ?",
+        answer:
+          "Non, vous pouvez nous confier vos clés en toute sécurité. Nos équipes sont formées et fiables.",
+      },
+      {
+        question: "Nettoyez-vous après un déménagement ?",
+        answer:
+          "Oui, nous proposons des nettoyages de fin de bail et de pré-installation pour remettre votre logement en parfait état.",
+      },
+      {
+        question: "Quelle est la fréquence recommandée ?",
+        answer:
+          "Selon vos besoins : nettoyage ponctuel, hebdomadaire ou mensuel. Nous proposons des formules d'abonnement avantageuses.",
+      },
+    ],
+  },
+  {
+    title: "Nettoyage résidences, immeubles",
+    slug: "nettoyage-residences-immeubles",
+    description:
+      "Entretien des parties communes, halls d'entrée et espaces partagés de vos résidences et immeubles.",
+    image: "/services/nettoyage-residences-immeubles.png",
+    icon: Building,
+    intro:
+      "La propreté des parties communes est essentielle à la qualité de vie des résidents. Eden Plaza Nettoyage assure l'entretien régulier de vos halls d'entrée, escaliers, couloirs et espaces extérieurs.",
+    prestations: [
+      "Nettoyage des halls d'entrée et couloirs",
+      "Entretien des escaliers et cages d'escalier",
+      "Nettoyage des ascenseurs",
+      "Entretien des parkings et sous-sols",
+      "Nettoyage des espaces extérieurs et abords",
+      "Gestion des ordures et propreté des locaux à poubelles",
+    ],
+    targets: "Syndics de copropriété, gérants d'immeubles, promoteurs immobiliers, résidences privées",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Interventions régulières selon un planning défini",
+      "Personnel formé et identifié",
+      "Matériel professionnel adapté aux grands espaces",
+      "Rapport d'intervention fourni sur demande",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "À quelle fréquence intervenez-vous dans les résidences ?",
+        answer:
+          "Nous proposons des passages quotidiens, hebdomadaires ou bimensuels selon vos besoins et le trafic de votre immeuble.",
+      },
+      {
+        question: "Gérez-vous également les espaces verts extérieurs ?",
+        answer:
+          "Oui, nous pouvons prendre en charge l'entretien des espaces verts et des abords extérieurs de votre résidence.",
+      },
+      {
+        question: "Proposez-vous des contrats annuels ?",
+        answer:
+          "Oui, nous proposons des contrats d'entretien annuels avec des tarifs préférentiels pour les résidences et immeubles.",
+      },
+    ],
+  },
+  {
+    title: "Nettoyage centres commerciaux",
+    slug: "nettoyage-centres-commerciaux",
+    description:
+      "Nettoyage professionnel des espaces commerciaux, galeries et zones de passage à fort trafic.",
+    image: "/services/nettoyage-centres-commerciaux.png",
+    icon: ShoppingBag,
+    intro:
+      "Un centre commercial propre et accueillant est un gage de qualité pour vos clients. Eden Plaza Nettoyage assure l'entretien complet de vos galeries marchandes, zones de restauration et espaces communs.",
+    prestations: [
+      "Nettoyage des galeries et allées de circulation",
+      "Entretien des sanitaires publics",
+      "Nettoyage des vitrines et devantures",
+      "Aspiration et lavage mécanisé des sols",
+      "Nettoyage des zones de restauration",
+      "Gestion des déchets et entretien des bacs",
+    ],
+    targets: "Centres commerciaux, galeries marchandes, supermarchés, zones commerciales, complexes multiservices",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Équipes disponibles avant, pendant et après les heures d'ouverture",
+      "Matériel de lavage mécanisé haute performance",
+      "Interventions discrètes et rapides",
+      "Respect des normes d'hygiène publique",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Intervenez-vous pendant les heures d'ouverture ?",
+        answer:
+          "Oui, nos équipes peuvent intervenir en continu pendant les heures d'ouverture avec du matériel silencieux et discret.",
+      },
+      {
+        question: "Prenez-vous en charge les grandes surfaces de sol ?",
+        answer:
+          "Oui, nous disposons d'autolaveuses et de matériel mécanisé adapté aux grandes surfaces de sol.",
+      },
+      {
+        question: "Proposez-vous des contrats mensuels pour centres commerciaux ?",
+        answer:
+          "Oui, nous proposons des contrats d'entretien sur mesure adaptés à la taille et aux exigences de votre centre commercial.",
+      },
+    ],
+  },
+  {
+    title: "Nettoyage copropriétés",
+    slug: "nettoyage-coproprietes",
+    description:
+      "Gestion complète de la propreté des parties communes de vos copropriétés.",
+    image: "/services/nettoyage-coproprietes.png",
+    icon: Building2,
+    intro:
+      "La gestion de la propreté d'une copropriété nécessite rigueur et régularité. Eden Plaza Nettoyage prend en charge l'entretien des parties communes pour garantir un cadre de vie agréable à tous les résidents.",
+    prestations: [
+      "Nettoyage hebdomadaire des parties communes",
+      "Entretien des halls, paliers et escaliers",
+      "Nettoyage des locaux techniques et caves",
+      "Lavage des vitres des parties communes",
+      "Entretien des boîtes aux lettres et interphones",
+      "Suivi et rapport d'intervention mensuel",
+    ],
+    targets: "Syndics de copropriété, conseils syndicaux, résidences privées, promoteurs",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Prestataire de confiance pour les syndics",
+      "Planning d'intervention régulier et transparent",
+      "Équipe dédiée à votre copropriété",
+      "Communication fluide avec le conseil syndical",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Comment se déroule la prise en charge d'une copropriété ?",
+        answer:
+          "Nous effectuons d'abord une visite technique gratuite pour établir un devis adapté, puis nous mettons en place un planning d'intervention régulier.",
+      },
+      {
+        question: "Gérez-vous aussi les situations d'urgence ?",
+        answer:
+          "Oui, nous pouvons intervenir en urgence en cas de sinistre, dégât des eaux ou nettoyage exceptionnel.",
+      },
+      {
+        question: "Fournissez-vous un compte-rendu d'intervention ?",
+        answer:
+          "Oui, nous fournissons un rapport mensuel détaillant les interventions réalisées, disponible pour le conseil syndical.",
+      },
+    ],
+  },
+  {
+    title: "Nettoyage événementiel",
+    slug: "nettoyage-evenementiel",
+    description:
+      "Préparation et remise en état de vos espaces avant, pendant et après tout type d'événement.",
+    image: "/services/nettoyage-evenementiel.png",
+    icon: Calendar,
+    intro:
+      "Votre événement mérite un cadre impeccable. Eden Plaza Nettoyage intervient avant, pendant et après vos manifestations pour assurer une propreté irréprochable tout au long de votre événement.",
+    prestations: [
+      "Nettoyage et préparation des lieux avant l'événement",
+      "Entretien en continu pendant la manifestation",
+      "Remise en état complète après l'événement",
+      "Gestion des déchets et évacuation des ordures",
+      "Nettoyage des sanitaires mobiles et fixes",
+      "Intervention rapide sur appel en cas de besoin",
+    ],
+    targets: "Organisateurs d'événements, mariages, conférences, salons, concerts, foires, séminaires",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Réactivité et flexibilité selon le déroulé de l'événement",
+      "Équipes disponibles 7j/7, nuit et jour",
+      "Gestion discrète pour ne pas perturber vos invités",
+      "Matériel complet pour tous types de surfaces",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Intervenez-vous pendant les mariages et réceptions privées ?",
+        answer:
+          "Oui, nous assurons la propreté des lieux tout au long de vos réceptions, de façon discrète et efficace.",
+      },
+      {
+        question: "Pouvez-vous gérer de grands événements avec plusieurs milliers de personnes ?",
+        answer:
+          "Oui, nous disposons des équipes et du matériel nécessaires pour gérer des événements de toutes tailles.",
+      },
+      {
+        question: "Combien de temps après l'événement la remise en état est-elle effectuée ?",
+        answer:
+          "Nous pouvons intervenir dès la fin de l'événement pour une remise en état rapide et complète.",
+      },
+    ],
+  },
+  {
+    title: "Assainissement",
+    slug: "assainissement",
+    description:
+      "Services d'assainissement professionnel pour garantir un environnement sain et conforme aux normes.",
+    image: "/services/assainissement.png",
+    icon: Droplets,
+    intro:
+      "L'assainissement de vos espaces est essentiel pour garantir la santé et la sécurité de vos occupants. Eden Plaza Nettoyage propose des services d'assainissement professionnels pour tous types de locaux.",
+    prestations: [
+      "Traitement et assainissement des réseaux d'eaux usées",
+      "Débouchage et curage des canalisations",
+      "Désinfection des zones humides et sanitaires",
+      "Traitement des odeurs et émanations",
+      "Assainissement après sinistre ou inondation",
+      "Contrôle et vérification de la conformité sanitaire",
+    ],
+    targets: "Restaurants, hôtels, industries agroalimentaires, collectivités, immeubles, particuliers",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Techniciens qualifiés en assainissement",
+      "Matériel de débouchage et curage haute pression",
+      "Intervention rapide 7j/7",
+      "Produits conformes aux normes sanitaires",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Intervenez-vous en urgence pour les canalisations bouchées ?",
+        answer:
+          "Oui, nous proposons des interventions d'urgence pour déboucher rapidement vos canalisations.",
+      },
+      {
+        question: "L'assainissement nécessite-t-il d'évacuer les locaux ?",
+        answer:
+          "Cela dépend du type d'intervention. Nous vous informons en amont des précautions à prendre.",
+      },
+      {
+        question: "Proposez-vous un suivi après assainissement ?",
+        answer:
+          "Oui, nous assurons un suivi post-intervention pour vérifier l'efficacité du traitement et prévenir toute récidive.",
+      },
+    ],
+  },
+  {
+    title: "Dératisation",
+    slug: "deratisation",
+    description:
+      "Élimination et prévention des rongeurs avec des produits homologués et des techniques éprouvées.",
+    image: "/services/deratisation.png",
+    icon: ShieldAlert,
+    intro:
+      "La présence de rongeurs représente un danger sanitaire et économique sérieux. Eden Plaza Nettoyage propose des interventions de dératisation efficaces et sécurisées pour éliminer et prévenir les infestations de rats et souris.",
+    prestations: [
+      "Diagnostic et inspection de l'infestation",
+      "Pose d'appâts rodenticides homologués",
+      "Installation de pièges mécaniques",
+      "Traitement des points d'entrée et voies d'accès",
+      "Suivi post-traitement et contrôle d'efficacité",
+      "Conseils préventifs pour éviter les récidives",
+    ],
+    targets: "Restaurants, entrepôts, industries agroalimentaires, hôtels, résidences, commerces",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Techniciens certifiés en lutte antiparasitaire",
+      "Produits homologués et sûrs pour l'environnement",
+      "Diagnostic gratuit avant intervention",
+      "Garantie de résultats avec suivi post-traitement",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Les produits utilisés sont-ils dangereux pour mes enfants ou animaux ?",
+        answer:
+          "Nous utilisons des produits homologués et vous fournissons toutes les consignes de sécurité avant intervention.",
+      },
+      {
+        question: "Combien de passages sont nécessaires pour éliminer les rongeurs ?",
+        answer:
+          "En général, 2 à 3 passages suffisent. Nous assurons un suivi pour garantir l'efficacité totale du traitement.",
+      },
+      {
+        question: "Comment prévenir le retour des rongeurs ?",
+        answer:
+          "Nous vous prodiguons des conseils pratiques et pouvons mettre en place des dispositifs préventifs durables.",
+      },
+    ],
+  },
+  {
+    title: "Désinsectisation",
+    slug: "desinsectisation",
+    description:
+      "Traitement professionnel contre les insectes nuisibles : cafards, moustiques, punaises et fourmis.",
+    image: "/services/desinsectisation.png",
+    icon: Bug,
+    intro:
+      "Les insectes nuisibles représentent un risque sanitaire et peuvent nuire à votre réputation. Eden Plaza Nettoyage propose des traitements de désinsectisation efficaces contre tous types d'insectes indésirables.",
+    prestations: [
+      "Traitement contre les cafards et blattes",
+      "Traitement anti-moustiques et moucherons",
+      "Élimination des punaises de lit",
+      "Traitement contre les fourmis et termites",
+      "Désinsectisation des cuisines professionnelles",
+      "Pose de pièges et dispositifs préventifs",
+    ],
+    targets: "Restaurants, hôtels, résidences, entrepôts, hôpitaux, commerces, particuliers",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Techniciens certifiés en désinsectisation",
+      "Produits homologués et efficaces",
+      "Traitement ciblé selon le type d'insecte",
+      "Suivi post-traitement inclus",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Faut-il vider les placards avant l'intervention ?",
+        answer:
+          "Pour certains traitements, oui. Nous vous communiquons toutes les instructions de préparation avant notre passage.",
+      },
+      {
+        question: "Le traitement est-il efficace contre les punaises de lit ?",
+        answer:
+          "Oui, nous utilisons des méthodes spécifiques combinant traitement chimique et thermique pour éliminer les punaises de lit.",
+      },
+      {
+        question: "L'odeur des produits est-elle forte ?",
+        answer:
+          "Nos produits modernes ont des odeurs réduites. Nous vous conseillons néanmoins d'aérer les pièces après l'intervention.",
+      },
+    ],
+  },
+  {
+    title: "Désinfection",
+    slug: "desinfection",
+    description:
+      "Désinfection complète de vos espaces contre virus, bactéries et agents pathogènes.",
+    image: "/services/desinfection.png",
+    icon: FlaskConical,
+    intro:
+      "La désinfection de vos locaux est indispensable pour protéger la santé de vos collaborateurs et clients. Eden Plaza Nettoyage propose des traitements de désinfection complets avec des produits homologués et des techniques éprouvées.",
+    prestations: [
+      "Désinfection par brumisation ou nébulisation",
+      "Traitement des surfaces à contact fréquent",
+      "Désinfection des systèmes de ventilation et climatisation",
+      "Traitement anti-moisissures et champignons",
+      "Désinfection post-COVID et maladies infectieuses",
+      "Certification de désinfection fournie sur demande",
+    ],
+    targets: "Hôpitaux, cliniques, restaurants, hôtels, écoles, crèches, bureaux, résidences",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Produits désinfectants homologués et certifiés",
+      "Techniques de désinfection de pointe",
+      "Personnel formé aux protocoles sanitaires",
+      "Intervention rapide et disponibilité 7j/7",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Quelle est la différence entre nettoyage et désinfection ?",
+        answer:
+          "Le nettoyage élimine les salissures visibles, tandis que la désinfection tue les micro-organismes pathogènes invisibles à l'œil nu.",
+      },
+      {
+        question: "Faut-il évacuer les locaux pendant la désinfection ?",
+        answer:
+          "Oui, généralement une évacuation de 1 à 3 heures est nécessaire selon le type de désinfectant utilisé.",
+      },
+      {
+        question: "Fournissez-vous un certificat de désinfection ?",
+        answer:
+          "Oui, nous pouvons fournir un certificat de désinfection attestant de l'intervention réalisée.",
+      },
+    ],
+  },
+  {
+    title: "Jardinage",
+    slug: "jardinage",
+    description:
+      "Entretien et aménagement de vos jardins, espaces verts et terrasses pour un cadre verdoyant.",
+    image: "/services/jardinage.png",
+    icon: Flower2,
+    intro:
+      "Un jardin bien entretenu est le reflet de votre soin pour votre environnement. Eden Plaza Nettoyage propose des services de jardinage et d'entretien des espaces verts pour particuliers et professionnels.",
+    prestations: [
+      "Tonte de pelouse et entretien du gazon",
+      "Taille des haies, arbustes et arbres",
+      "Désherbage et entretien des massifs",
+      "Plantation et aménagement paysager",
+      "Arrosage et fertilisation",
+      "Nettoyage des terrasses et allées",
+    ],
+    targets: "Particuliers, villas, hôtels, résidences, entreprises, collectivités",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Jardiniers qualifiés et passionnés",
+      "Matériel professionnel de jardinage",
+      "Conseils personnalisés pour votre espace vert",
+      "Entretien régulier selon saison et besoins",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "À quelle fréquence faut-il entretenir un jardin ?",
+        answer:
+          "Cela dépend de la saison et de la végétation. Nous recommandons un entretien mensuel minimum pour maintenir un jardin propre et soigné.",
+      },
+      {
+        question: "Proposez-vous l'aménagement de nouveaux espaces verts ?",
+        answer:
+          "Oui, nous pouvons concevoir et aménager de nouveaux espaces verts selon vos souhaits et votre budget.",
+      },
+      {
+        question: "Intervenez-vous pour les petits jardins d'appartement ou terrasses ?",
+        answer:
+          "Oui, nous intervenons pour tout type d'espace vert, des balcons et terrasses aux grands jardins.",
+      },
+    ],
+  },
+  {
+    title: "Entretien et rénovation",
+    slug: "entretien-renovation",
+    description:
+      "Services complets d'entretien courant et de rénovation légère pour vos espaces professionnels et résidentiels.",
+    image: "/services/entretien-renovation.png",
+    icon: Wrench,
+    intro:
+      "Au-delà du nettoyage, Eden Plaza Nettoyage propose des services d'entretien courant et de petite rénovation pour maintenir vos espaces en parfait état et préserver la valeur de vos biens.",
+    prestations: [
+      "Entretien courant des installations et équipements",
+      "Petits travaux de rénovation et remise en état",
+      "Peinture intérieure et ravalement",
+      "Réparations diverses (plomberie, menuiserie légère)",
+      "Remplacement d'équipements défectueux",
+      "Mise aux normes et amélioration des espaces",
+    ],
+    targets: "Particuliers, entreprises, hôtels, résidences, propriétaires bailleurs, agences immobilières",
+    coverage:
+      "Casablanca, Rabat, Mohammedia, El Jadida, Marrakech, Fès, Tanger, Agadir… et toutes les villes du Maroc sur demande.",
+    whyUs: [
+      "Équipe polyvalente pour tous types de travaux",
+      "Intervention rapide et devis transparent",
+      "Qualité des travaux garantie",
+      "Coordination complète des interventions",
+      "Devis gratuit et personnalisé",
+    ],
+    faqs: [
+      {
+        question: "Prenez-vous en charge les petits travaux de plomberie ?",
+        answer:
+          "Oui, nos équipes peuvent gérer les petites réparations de plomberie et autres travaux courants.",
+      },
+      {
+        question: "Peut-on combiner entretien et nettoyage dans un même contrat ?",
+        answer:
+          "Oui, nous proposons des contrats combinés entretien + nettoyage pour une gestion simplifiée de vos espaces.",
+      },
+      {
+        question: "Intervenez-vous pour la rénovation avant une mise en location ?",
+        answer:
+          "Oui, nous proposons des forfaits remise en état complets pour préparer vos biens à la location ou à la vente.",
       },
     ],
   },
@@ -756,7 +1252,7 @@ export const STATS: StatItem[] = [
   { value: 800, suffix: "+", label: "Clients satisfaits", icon: Users },
   { value: 80, suffix: "+", label: "Projets en cours", icon: FolderOpen },
   { value: 18, suffix: "+", label: "Équipes d'experts", icon: UserCheck },
-  { value: 13, suffix: "", label: "Services spécialisés", icon: Briefcase },
+  { value: 24, suffix: "", label: "Services spécialisés", icon: Briefcase },
 ];
 
 // ─── Testimonials ───────────────────────────────────────
@@ -861,6 +1357,17 @@ export const CONTACT = {
     "Nettoyage Resto-Cafés",
     "Hygiène Traitement 4D",
     "Nettoyage Moquettes & Tapis",
+    "Nettoyage appartements / maisons / villas",
+    "Nettoyage résidences, immeubles",
+    "Nettoyage centres commerciaux",
+    "Nettoyage copropriétés",
+    "Nettoyage événementiel",
+    "Assainissement",
+    "Dératisation",
+    "Désinsectisation",
+    "Désinfection",
+    "Jardinage",
+    "Entretien et rénovation",
   ],
 } as const;
 
