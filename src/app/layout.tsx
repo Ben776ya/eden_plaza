@@ -35,6 +35,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${jakarta.variable} ${sora.variable}`}>
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8922537549805606"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
