@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Sora } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
@@ -42,6 +43,18 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-0ZC1983VH7"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-0ZC1983VH7');
+        `}
+      </Script>
       <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
