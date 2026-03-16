@@ -18,6 +18,9 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   title: "Eden Plaza Nettoyage | Services de Nettoyage Professionnel à Casablanca",
+  icons: {
+    icon: "/logo.png",
+  },
   description:
     "Entreprise de nettoyage professionnel à Casablanca. Nettoyage bureaux, résidentiel, industriel, Airbnb, fin de chantier, traitement 4D. Devis gratuit.",
   openGraph: {
