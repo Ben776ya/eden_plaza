@@ -37,6 +37,36 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${jakarta.variable} ${sora.variable}`}>
       <head>
+         import Script from "next/script";
+
+  // Dans le composant Layout :
+  <Script
+    id="jsonld-localbusiness"
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Eden Plaza Nettoyage",
+        "url": "https://edenplazanettoyage.ma",
+        "logo": "https://edenplazanettoyage.ma/logo.png",
+        "telephone": "+212661074155",
+        "email": "edenplazanettoyage.pro@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rue Attabari Résidence Hidden Hills 3",
+          "addressLocality": "Casablanca",
+          "addressCountry": "MA"
+        },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }]
+      })
+    }}
+  />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8922537549805606"
