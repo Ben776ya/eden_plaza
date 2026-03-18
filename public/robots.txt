@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Bloquer les chemins inutiles
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+
+# Sitemap
+Sitemap: https://edenplazanettoyage.ma/sitemap.xml
