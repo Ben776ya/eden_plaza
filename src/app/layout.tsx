@@ -51,7 +51,7 @@ export default function RootLayout({
         "url": "https://edenplazanettoyage.ma",
         "logo": "https://edenplazanettoyage.ma/logo.png",
         "telephone": "+212661074155",
-        "email": "edenplazanettoyage.pro@gmail.com",
+        "email": "contact@edenplazanettoyage.ma",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Rue Attabari Résidence Hidden Hills 3",

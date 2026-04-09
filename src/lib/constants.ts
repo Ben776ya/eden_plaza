@@ -47,7 +47,7 @@ export const SECTION_IDS = ["accueil", "services", "apropos", "avis", "contact"]
 export const TOP_BAR = {
   tagline: "Votre expert du nettoyage – fiable, efficace, imbattable.",
   phone: "06 61 07 41 55",
-  email: "edenplazanettoyage.pro@gmail.com",
+  email: "contact@edenplazanettoyage.ma",
 } as const;
 
 // ─── Hero ───────────────────────────────────────────────
@@ -1331,8 +1331,8 @@ export const CONTACT = {
   phone: { label: "Téléphone", value: "06 61 07 41 55", href: "tel:+212661074155" },
   email: {
     label: "Email",
-    value: "edenplazanettoyage.pro@gmail.com",
-    href: "mailto:edenplazanettoyage.pro@gmail.com",
+    value: "contact@edenplazanettoyage.ma",
+    href: "mailto:contact@edenplazanettoyage.ma",
   },
   address: {
     label: "Adresse",
