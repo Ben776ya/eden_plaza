@@ -1,37 +1,40 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@/lib/constants";
+import { BLOG_POSTS } from "@/lib/blog";
 
 const SITE_URL = "https://www.edenplazanettoyage.ma";
+const LAST_UPDATED = "2026-04-11";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const servicePages = SERVICES.map((service) => ({
     url: `${SITE_URL}/services/${service.slug}`,
-    lastModified: new Date(),
+    lastModified: LAST_UPDATED,
     changeFrequency: "monthly" as const,
-    priority: service.slug === "nettoyage-de-chantier" ||
-      service.slug === "nettoyage-airbnb" ||
-      service.slug === "nettoyage-bureaux" ||
-      service.slug === "nettoyage-industriel" ||
-      service.slug === "nettoyage-vitres-facades" ||
-      service.slug === "nettoyage-canape-fauteuil" ||
-      service.slug === "nettoyage-appartements-villas"
-      ? 0.9
-      : 0.8,
+  }));
+
+  const blogPages = BLOG_POSTS.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: post.datePublished,
+    changeFrequency: "monthly" as const,
   }));
 
   return [
     {
       url: SITE_URL,
-      lastModified: new Date(),
+      lastModified: LAST_UPDATED,
       changeFrequency: "weekly",
-      priority: 1,
     },
     {
       url: `${SITE_URL}/politique-confidentialite`,
-      lastModified: new Date(),
+      lastModified: LAST_UPDATED,
       changeFrequency: "yearly",
-      priority: 0.3,
     },
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "weekly",
+    },
+    ...blogPages,
     ...servicePages,
   ];
 }
