@@ -56,6 +56,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${jakarta.variable} ${sora.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+      </head>
       <Script
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8922537549805606"
         strategy="lazyOnload"
@@ -80,6 +84,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
+              "@id": "https://www.edenplazanettoyage.ma/#business",
               name: "Eden Plaza Nettoyage",
               url: "https://www.edenplazanettoyage.ma",
               logo: "https://www.edenplazanettoyage.ma/logo.png",
@@ -92,6 +97,8 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 streetAddress: "Rue Attabari Résidence Hidden Hills 3",
                 addressLocality: "Casablanca",
+                addressRegion: "Casablanca-Settat",
+                postalCode: "20000",
                 addressCountry: "MA",
               },
               geo: {
@@ -124,6 +131,22 @@ export default function RootLayout({
                 "https://www.linkedin.com/company/edenplaza-nettoyage",
                 "https://www.youtube.com/@edenplaza-nettoyage",
               ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Eden Plaza Nettoyage",
+              url: "https://www.edenplazanettoyage.ma",
+              inLanguage: "fr",
+              publisher: {
+                "@type": "LocalBusiness",
+                "@id": "https://www.edenplazanettoyage.ma/#business",
+              },
             }),
           }}
         />

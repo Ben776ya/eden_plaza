@@ -22,6 +22,7 @@ export default function Testimonials() {
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://www.edenplazanettoyage.ma/#business",
     name: "Eden Plaza Nettoyage",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -32,6 +33,7 @@ export default function Testimonials() {
     },
     review: testimonials.map((item) => ({
       "@type": "Review",
+      datePublished: "2026-03-15",
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
