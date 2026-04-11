@@ -38,6 +38,7 @@ export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "À propos", href: "#apropos" },
   { label: "Avis", href: "#avis" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -80,7 +81,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-de-chantier",
     description:
       "Remise en état parfaite après chantier pour une livraison impeccable de vos espaces.",
-    image: "/services/nettoyage-chantier.jpeg",
+    image: "/services/nettoyage-chantier.webp",
     icon: HardHat,
     intro:
       "Votre chantier est terminé et vous avez besoin d'une remise en état impeccable ? Eden Plaza Nettoyage intervient pour un nettoyage fin de chantier professionnel, afin de livrer des espaces propres et prêts à l'usage.",
@@ -125,8 +126,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-airbnb",
     description:
       "Service express entre locataires. Nettoyage complet, changement de linge et vérifications qualité.",
-    image:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80",
+    image: "/services/nettoyage-airbnb.webp",
     icon: Home,
     intro:
       "Vous gérez un ou plusieurs logements Airbnb et souhaitez offrir une expérience impeccable à chaque voyageur ? Eden Plaza Nettoyage assure un service express et méticuleux entre chaque locataire.",
@@ -396,7 +396,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "cristallisation-parquet",
     description:
       "Vitrification, ponçage et traitement de parquets pour redonner brillance et protection à vos sols en bois.",
-    image: "/services/cristallisation-parquet.jpeg",
+    image: "/services/cristallisation-parquet.webp",
     icon: Sparkles,
     intro:
       "Vos sols en parquet ont perdu leur éclat d'origine ? Eden Plaza Nettoyage redonne brillance et protection à vos parquets grâce à des techniques professionnelles de vitrification et traitement du bois.",
@@ -441,7 +441,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-hopitaux",
     description:
       "Protocoles stricts de désinfection pour garantir une hygiène irréprochable dans les établissements de santé.",
-    image: "/services/nettoyage-hopitaux.jpeg",
+    image: "/services/nettoyage-hopitaux.webp",
     icon: Stethoscope,
     intro:
       "Un environnement médical propre est essentiel pour la sécurité des patients et du personnel. Eden Plaza Nettoyage applique des protocoles stricts de désinfection pour garantir une hygiène irréprochable dans les hôpitaux, cliniques et cabinets médicaux.",
@@ -486,7 +486,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-hotels",
     description:
       "Nettoyage complet et discret des chambres et espaces communs pour une expérience client premium.",
-    image: "/services/nettoyage-hotels.jpeg",
+    image: "/services/nettoyage-hotels.webp",
     icon: BedDouble,
     intro:
       "Offrez à vos clients une expérience irréprochable dès leur arrivée. Nos équipes assurent un nettoyage complet et discret des chambres, espaces communs et zones de service pour maintenir un niveau de qualité premium.",
@@ -531,7 +531,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-restos-cafes",
     description:
       "Entretien et désinfection de vos cuisines, salles et terrasses dans le respect des normes d'hygiène alimentaire.",
-    image: "/services/nettoyage-resto-cafes.jpeg",
+    image: "/services/nettoyage-resto-cafes.webp",
     icon: UtensilsCrossed,
     intro:
       "La propreté est un élément clé de votre réputation. Eden Plaza Nettoyage garantit l'entretien et la désinfection de vos cuisines, salles et terrasses, en respectant les normes d'hygiène alimentaire.",
@@ -621,7 +621,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-moquettes-tapis",
     description:
       "Nettoyage en profondeur pour éliminer acariens, taches et impuretés.",
-    image: "/services/nettoyage-moquettes-tapis.jpeg",
+    image: "/services/nettoyage-moquettes-tapis.webp",
     icon: Layers,
     intro:
       "Vos moquettes et tapis accumulent poussières, acariens et taches au fil du temps. Eden Plaza Nettoyage les nettoie en profondeur pour un résultat sain, frais et éclatant.",
@@ -1235,8 +1235,7 @@ export const ABOUT = {
     role: "Fondateur & Directeur Général",
     message:
       "Nous mettons notre savoir-faire et notre passion au service de votre confort, pour un environnement impeccable et sain, jour après jour. Notre priorité est de garantir un environnement propre, sain et agréable pour chaque client.",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80",
+    image: "/founder.webp",
   },
 } as const;
 

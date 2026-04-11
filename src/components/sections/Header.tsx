@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Logo from "@/components/ui/Logo";
@@ -62,18 +63,17 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Navigation principale">
             {t.nav.map((link) => {
-              const href = isHome ? link.href : `/${link.href}`;
-              const isActive = isHome && `#${activeSection}` === link.href;
-              return (
-                <a
-                  key={link.href}
-                  href={href}
-                  className={`relative text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? "gradient-text"
-                      : "text-[var(--color-text-primary)] hover:text-[var(--color-primary)]"
-                  }`}
-                >
+              const isRoute = link.href.startsWith("/");
+              const href = isRoute ? link.href : isHome ? link.href : `/${link.href}`;
+              const isActive = !isRoute && isHome && `#${activeSection}` === link.href;
+              const className = `relative text-sm font-medium transition-colors duration-200 ${
+                isActive
+                  ? "gradient-text"
+                  : "text-[var(--color-text-primary)] hover:text-[var(--color-primary)]"
+              }`;
+
+              const content = (
+                <>
                   {link.label}
                   {isActive && (
                     <motion.span
@@ -85,6 +85,16 @@ export default function Header() {
                       transition={{ type: "spring", stiffness: 350, damping: 30 }}
                     />
                   )}
+                </>
+              );
+
+              return isRoute ? (
+                <Link key={link.href} href={href} className={className}>
+                  {content}
+                </Link>
+              ) : (
+                <a key={link.href} href={href} className={className}>
+                  {content}
                 </a>
               );
             })}
@@ -155,17 +165,22 @@ export default function Header() {
               </button>
 
               <div className="flex flex-col gap-6">
-                {t.nav.map((link) => (
-                  <a
-                    key={link.href}
-                    href={isHome ? link.href : `/${link.href}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-lg font-medium transition-colors hover:text-[var(--color-primary)]"
-                    style={{ color: "var(--color-text-primary)" }}
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {t.nav.map((link) => {
+                  const isRoute = link.href.startsWith("/");
+                  const href = isRoute ? link.href : isHome ? link.href : `/${link.href}`;
+                  const props = {
+                    key: link.href,
+                    href,
+                    onClick: () => setMobileOpen(false),
+                    className: "text-lg font-medium transition-colors hover:text-[var(--color-primary)]",
+                    style: { color: "var(--color-text-primary)" } as const,
+                  };
+                  return isRoute ? (
+                    <Link {...props}>{link.label}</Link>
+                  ) : (
+                    <a {...props}>{link.label}</a>
+                  );
+                })}
               </div>
 
               <a
