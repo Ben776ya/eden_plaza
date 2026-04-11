@@ -72,17 +72,31 @@ export default function Footer() {
               {t.ui.footerLinksHeading}
             </h4>
             <ul className="space-y-2.5">
-              {t.nav.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={`/${link.href}`}
-                    className="text-sm transition-colors hover:text-white"
-                    style={{ color: "rgba(255,255,255,0.5)" }}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {t.nav.map((link) => {
+                const isRoute = link.href.startsWith("/");
+                const href = isRoute ? link.href : `/${link.href}`;
+                return (
+                  <li key={link.href}>
+                    {isRoute ? (
+                      <Link
+                        href={href}
+                        className="text-sm transition-colors hover:text-white"
+                        style={{ color: "rgba(255,255,255,0.5)" }}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={href}
+                        className="text-sm transition-colors hover:text-white"
+                        style={{ color: "rgba(255,255,255,0.5)" }}
+                      >
+                        {link.label}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
