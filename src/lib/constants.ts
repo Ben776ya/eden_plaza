@@ -171,7 +171,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-canape-fauteuil",
     description:
       "Nettoyage et détachage professionnel par injection/extraction et vapeur.",
-    image: "/services/nettoyage-canape-fauteuil.png",
+    image: "/services/nettoyage-canape-fauteuil.webp",
     icon: Sofa,
     intro:
       "Vos canapés et fauteuils ont perdu leur éclat ? Eden Plaza Nettoyage redonne vie à vos meubles rembourrés grâce à des techniques professionnelles d'injection/extraction et de nettoyage vapeur.",
@@ -216,7 +216,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-vitres-facades",
     description:
       "Nettoyage spécialisé pour redonner éclat et transparence à vos bâtiments.",
-    image: "/services/nettoyage-vitres.png",
+    image: "/services/nettoyage-vitres.webp",
     icon: Building2,
     intro:
       "Des vitres et façades impeccables reflètent le professionnalisme de votre entreprise. Eden Plaza Nettoyage intervient avec des techniques spécialisées pour redonner éclat et transparence à vos bâtiments.",
@@ -261,7 +261,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-industriel",
     description:
       "Entretien pour usines, ateliers et entrepôts avec équipements et normes de sécurité renforcées.",
-    image: "/services/nettoyage-industriel.png",
+    image: "/services/nettoyage-industriel.webp",
     icon: Factory,
     intro:
       "Votre site industriel a besoin d'un nettoyage rigoureux et sécurisé ? Eden Plaza Nettoyage propose des interventions professionnelles adaptées aux environnements industriels, entrepôts, usines et zones sensibles.",
@@ -306,7 +306,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-bureaux",
     description:
       "Services complets pour espaces professionnels, magasins et entrepôts. Hygiène & Sécurité.",
-    image: "/services/nettoyage-bureaux.png",
+    image: "/services/nettoyage-bureaux.webp",
     icon: Building,
     intro:
       "Un environnement de travail propre booste la productivité et renforce votre image professionnelle. Eden Plaza Nettoyage assure l'entretien régulier de vos bureaux, locaux commerciaux et espaces de travail.",
@@ -351,7 +351,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "cristallisation-marbre",
     description:
       "Ponçage, polissage et cristallisation professionnelle pour redonner éclat et brillance à vos sols en marbre.",
-    image: "/services/machine-cristallisation.png",
+    image: "/services/machine-cristallisation.webp",
     icon: Gem,
     intro:
       "Vos sols en marbre ont perdu leur brillance naturelle ? Eden Plaza Nettoyage redonne vie et éclat à votre marbre grâce à des techniques professionnelles de ponçage, polissage et cristallisation.",
@@ -666,7 +666,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-appartements-villas",
     description:
       "Nettoyage complet et en profondeur de vos espaces résidentiels pour un cadre de vie sain et impeccable.",
-    image: "/services/nettoyage-appartements-villas.png",
+    image: "/services/nettoyage-appartements-villas.webp",
     icon: Home,
     intro:
       "Votre appartement, maison ou villa mérite un entretien irréprochable. Eden Plaza Nettoyage intervient pour un nettoyage complet et en profondeur de tous vos espaces résidentiels, pour un cadre de vie sain, propre et agréable.",
@@ -711,7 +711,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-residences-immeubles",
     description:
       "Entretien des parties communes, halls d'entrée et espaces partagés de vos résidences et immeubles.",
-    image: "/services/nettoyage-residences-immeubles.png",
+    image: "/services/nettoyage-residences-immeubles.webp",
     icon: Building,
     intro:
       "La propreté des parties communes est essentielle à la qualité de vie des résidents. Eden Plaza Nettoyage assure l'entretien régulier de vos halls d'entrée, escaliers, couloirs et espaces extérieurs.",
@@ -756,7 +756,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-centres-commerciaux",
     description:
       "Nettoyage professionnel des espaces commerciaux, galeries et zones de passage à fort trafic.",
-    image: "/services/nettoyage-centres-commerciaux.png",
+    image: "/services/nettoyage-centres-commerciaux.webp",
     icon: ShoppingBag,
     intro:
       "Un centre commercial propre et accueillant est un gage de qualité pour vos clients. Eden Plaza Nettoyage assure l'entretien complet de vos galeries marchandes, zones de restauration et espaces communs.",
@@ -801,7 +801,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-coproprietes",
     description:
       "Gestion complète de la propreté des parties communes de vos copropriétés.",
-    image: "/services/nettoyage-coproprietes.png",
+    image: "/services/nettoyage-coproprietes.webp",
     icon: Building2,
     intro:
       "La gestion de la propreté d'une copropriété nécessite rigueur et régularité. Eden Plaza Nettoyage prend en charge l'entretien des parties communes pour garantir un cadre de vie agréable à tous les résidents.",
@@ -846,7 +846,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "nettoyage-evenementiel",
     description:
       "Préparation et remise en état de vos espaces avant, pendant et après tout type d'événement.",
-    image: "/services/nettoyage-evenementiel.png",
+    image: "/services/nettoyage-evenementiel.webp",
     icon: Calendar,
     intro:
       "Votre événement mérite un cadre impeccable. Eden Plaza Nettoyage intervient avant, pendant et après vos manifestations pour assurer une propreté irréprochable tout au long de votre événement.",
@@ -891,7 +891,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "assainissement",
     description:
       "Services d'assainissement professionnel pour garantir un environnement sain et conforme aux normes.",
-    image: "/services/assainissement.png",
+    image: "/services/assainissement.webp",
     icon: Droplets,
     intro:
       "L'assainissement de vos espaces est essentiel pour garantir la santé et la sécurité de vos occupants. Eden Plaza Nettoyage propose des services d'assainissement professionnels pour tous types de locaux.",
@@ -936,7 +936,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "deratisation",
     description:
       "Élimination et prévention des rongeurs avec des produits homologués et des techniques éprouvées.",
-    image: "/services/deratisation.png",
+    image: "/services/deratisation.webp",
     icon: ShieldAlert,
     intro:
       "La présence de rongeurs représente un danger sanitaire et économique sérieux. Eden Plaza Nettoyage propose des interventions de dératisation efficaces et sécurisées pour éliminer et prévenir les infestations de rats et souris.",
@@ -981,7 +981,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "desinsectisation",
     description:
       "Traitement professionnel contre les insectes nuisibles : cafards, moustiques, punaises et fourmis.",
-    image: "/services/desinsectisation.png",
+    image: "/services/desinsectisation.webp",
     icon: Bug,
     intro:
       "Les insectes nuisibles représentent un risque sanitaire et peuvent nuire à votre réputation. Eden Plaza Nettoyage propose des traitements de désinsectisation efficaces contre tous types d'insectes indésirables.",
@@ -1026,7 +1026,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "desinfection",
     description:
       "Désinfection complète de vos espaces contre virus, bactéries et agents pathogènes.",
-    image: "/services/desinfection.png",
+    image: "/services/desinfection.webp",
     icon: FlaskConical,
     intro:
       "La désinfection de vos locaux est indispensable pour protéger la santé de vos collaborateurs et clients. Eden Plaza Nettoyage propose des traitements de désinfection complets avec des produits homologués et des techniques éprouvées.",
@@ -1071,7 +1071,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "jardinage",
     description:
       "Entretien et aménagement de vos jardins, espaces verts et terrasses pour un cadre verdoyant.",
-    image: "/services/jardinage.png",
+    image: "/services/jardinage.webp",
     icon: Flower2,
     intro:
       "Un jardin bien entretenu est le reflet de votre soin pour votre environnement. Eden Plaza Nettoyage propose des services de jardinage et d'entretien des espaces verts pour particuliers et professionnels.",
@@ -1116,7 +1116,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "entretien-renovation",
     description:
       "Services complets d'entretien courant et de rénovation légère pour vos espaces professionnels et résidentiels.",
-    image: "/services/entretien-renovation.png",
+    image: "/services/entretien-renovation.webp",
     icon: Wrench,
     intro:
       "Au-delà du nettoyage, Eden Plaza Nettoyage propose des services d'entretien courant et de petite rénovation pour maintenir vos espaces en parfait état et préserver la valeur de vos biens.",
