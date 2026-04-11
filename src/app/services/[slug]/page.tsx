@@ -36,11 +36,20 @@ export async function generateMetadata({
       type: "website",
       url: `${SITE_URL}/services/${slug}`,
       siteName: "Eden Plaza Nettoyage",
+      images: [
+        {
+          url: `${SITE_URL}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} - Eden Plaza Nettoyage`,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
+      images: [`${SITE_URL}/og-image.png`],
     },
   };
 }

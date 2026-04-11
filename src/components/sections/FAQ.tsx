@@ -74,8 +74,19 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const { t } = useLanguage();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: t.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
   return (
     <section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-bg-light)" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="max-w-3xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">

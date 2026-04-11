@@ -1212,7 +1212,7 @@ export const fr: Translations = {
     footerLinksHeading: "Liens Utiles",
     footerContactHeading: "Contact",
     footerHours: "Lun - Sam : 08h00 - 18h00",
-    heroServicesLabel: "Nos services",
+    heroServicesLabel: "Nos Services",
     formName: "Nom complet *",
     formEmail: "Email *",
     formPhone: "Téléphone",

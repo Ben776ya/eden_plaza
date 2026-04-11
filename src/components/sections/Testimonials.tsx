@@ -19,12 +19,36 @@ export default function Testimonials() {
     quote: t.testimonials[i].quote,
   }));
 
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Eden Plaza Nettoyage",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      reviewCount: String(testimonials.length),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: testimonials.map((item) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: { "@type": "Person", name: item.name },
+      reviewBody: item.quote,
+    })),
+  };
+
   return (
     <section
       id="avis"
       className="py-20 md:py-28"
       style={{ backgroundColor: "white" }}
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">

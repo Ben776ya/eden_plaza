@@ -120,9 +120,18 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
         <div className="max-w-7xl mx-auto px-6 py-5">
-          <p className="text-center text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
-            {FOOTER.copyright}
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+            <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
+              {FOOTER.copyright}
+            </p>
+            <Link
+              href="/politique-confidentialite"
+              className="text-sm transition-colors hover:text-white"
+              style={{ color: "rgba(255,255,255,0.4)" }}
+            >
+              Politique de confidentialité
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
