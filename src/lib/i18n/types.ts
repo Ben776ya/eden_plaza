@@ -99,5 +99,21 @@ export interface Translations {
     serviceNotFound: string;
     serviceNotFoundBody: string;
     ctaBottomBody: string;
+    // Blog
+    blogLabel: string;
+    blogTitle: string;
+    blogSubtitle: string;
+    blogReadMore: string;
+    blogMinRead: string;
+    blogAllCategories: string;
+    blogCategoryGuide: string;
+    blogCategoryConseil: string;
+    blogCategoryActualite: string;
+    blogPublishedOn: string;
+    blogRelatedServices: string;
+    blogRelatedPosts: string;
+    blogShareArticle: string;
+    blogBackToBlog: string;
+    footerBlogHeading: string;
   };
 }
