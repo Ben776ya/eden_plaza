@@ -92,7 +92,7 @@ export default function RootLayout({
               description:
                 "Entreprise de nettoyage professionnel à Casablanca. Nettoyage bureaux, résidentiel, industriel, Airbnb, fin de chantier, traitement 4D.",
               telephone: "+212661074155",
-              email: "contact@edenplazanettoyage.ma",
+              email: "info.edenplaza@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Rue Attabari Résidence Hidden Hills 3",

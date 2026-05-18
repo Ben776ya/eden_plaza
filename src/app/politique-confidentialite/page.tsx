@@ -58,7 +58,7 @@ export default function PolitiqueConfidentialite() {
               traitement de vos données personnelles.
             </p>
             <p>
-              <strong>Contact :</strong> contact@edenplazanettoyage.ma |
+              <strong>Contact :</strong> info.edenplaza@gmail.com |
               +212 661 074 155
             </p>
 
@@ -155,11 +155,11 @@ export default function PolitiqueConfidentialite() {
             <p>
               Pour exercer ces droits, contactez-nous à{" "}
               <a
-                href="mailto:contact@edenplazanettoyage.ma"
+                href="mailto:info.edenplaza@gmail.com"
                 className="font-medium underline"
                 style={{ color: "var(--color-primary)" }}
               >
-                contact@edenplazanettoyage.ma
+                info.edenplaza@gmail.com
               </a>
               .
             </p>
